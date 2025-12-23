@@ -158,12 +158,67 @@
 
 <body>
 
+    <!-- Shared Side Nav -->
+    <nav class="cine-nav"
+        style="position: fixed; left: 0; top: 0; height: 100vh; width: 80px; border-right: 1px solid rgba(255,255,255,0.1); display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 2rem 0; z-index: 1000; background: #050505;">
+        <div class="cine-menu-btn" onclick="toggleMenu()"
+            style="width: 40px; height: 40px; border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.3s; color: white;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+        </div>
+        <a href="index.html" class="cine-logo"
+            style="writing-mode: vertical-rl; text-orientation: mixed; transform: rotate(180deg); color: #fff; text-decoration: none; font-family: 'Syncopate', sans-serif; font-size: 1.2rem; letter-spacing: 4px;">GALLERY</a>
+        <div></div>
+    </nav>
+
+    <!-- Menu Overlay -->
+    <div class="cine-menu-overlay" id="menu-overlay">
+        <button class="cine-close-btn" onclick="toggleMenu()">×</button>
+        <div class="cine-menu-content">
+            <div class="cine-menu-col">
+                <h3>Works</h3>
+                <a href="collection.html">All Works</a>
+                <a href="#">Collections</a>
+                <a href="#">Limited Editions</a>
+            </div>
+            <div class="cine-menu-col">
+                <h3>About</h3>
+                <a href="#">The Photographer</a>
+                <a href="#">Biography / Vision</a>
+            </div>
+            <div class="cine-menu-col">
+                <h3>Info</h3>
+                <a href="#">Editions</a>
+                <a href="#">Framing</a>
+                <a href="#">Shipping & Returns</a>
+            </div>
+            <div class="cine-menu-col">
+                <h3>Journal</h3>
+                <a href="#">News</a>
+                <a href="#">Stories</a>
+                <a href="#">Exhibitions</a>
+            </div>
+            <div class="cine-menu-col">
+                <h3>Contact</h3>
+                <a href="#">Get in Touch</a>
+                <div style="margin-top: 2rem; display: flex; gap: 1rem;">
+                    <a href="#">Search</a>
+                    <a href="#">Account</a>
+                    <a href="#">Cart (0)</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Back Nav -->
-    <a href="index.html"
-        style="position: fixed; top: 2rem; left: 2rem; z-index: 1000; color: #fff; text-decoration: none; font-family: var(--font-body); opacity: 0.7;">←
+    <a href="collection.html"
+        style="position: fixed; top: 2rem; left: 100px; z-index: 1000; color: #fff; text-decoration: none; font-family: var(--font-body); opacity: 0.7;">←
         Back to Gallery</a>
 
-    <div class="prod-layout">
+    <div class="prod-layout" style="padding-left: 80px;">
         <!-- Visual Side -->
         <div class="prod-visual">
             <img id="main-art" src="https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?w=1600&q=95" alt="Art"
@@ -206,6 +261,107 @@
             <button class="action-btn" id="cta-btn">Acquire Artwork</button>
         </div>
     </div>
+
+    <!-- P2 Dark Footer -->
+    <footer
+        style="padding: 4rem 2rem 4rem 100px; background: #050505; border-top: 1px solid #111; color: #666; font-family: 'Manrope', sans-serif; font-size: 0.8rem;">
+        <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 3rem; max-width: 1400px;">
+            <div style="display: flex; gap: 2rem;">
+                <a href="#" style="color: #888; text-decoration: none;">Terms & Conditions</a>
+                <a href="#" style="color: #888; text-decoration: none;">Privacy Policy</a>
+                <a href="#" style="color: #888; text-decoration: none;">Returns</a>
+                <a href="#" style="color: #888; text-decoration: none;">Shipping</a>
+            </div>
+
+            <div style="display: flex; gap: 2rem;">
+                <a href="#" style="color: #888; text-decoration: none;">Instagram</a>
+            </div>
+
+            <div style="display: flex; gap: 1rem; align-items: center;">
+                <span>Newsletter</span>
+                <input type="email" placeholder="Email Address"
+                    style="background: transparent; border: 1px solid #333; color: #fff; padding: 0.5rem; font-family: inherit;">
+                <button
+                    style="background: #fff; color: #000; border: none; padding: 0.5rem 1rem; cursor: pointer;">Subscribe</button>
+            </div>
+        </div>
+        <div style="margin-top: 3rem; color: #444;">
+            &copy; 2024 Christian Nørgaard.
+        </div>
+    </footer>
+
+    <style>
+        /* Menu Overlay Styles */
+        .cine-menu-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 2000;
+            opacity: 0;
+            pointer-events: none;
+            transition: 0.5s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-left: 80px;
+        }
+
+        .cine-menu-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .cine-close-btn {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            background: transparent;
+            border: none;
+            color: #fff;
+            font-size: 3rem;
+            cursor: pointer;
+            z-index: 2001;
+        }
+
+        .cine-menu-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 4rem;
+            width: 100%;
+            max-width: 1400px;
+            padding: 4rem;
+        }
+
+        .cine-menu-col h3 {
+            font-family: var(--font-display);
+            color: #666;
+            margin-bottom: 2rem;
+            font-size: 1rem;
+        }
+
+        .cine-menu-col a {
+            display: block;
+            color: #fff;
+            text-decoration: none;
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            transition: 0.3s;
+        }
+
+        .cine-menu-col a:hover {
+            color: #888;
+            padding-left: 10px;
+        }
+    </style>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu-overlay');
+            menu.classList.toggle('active');
+        }
+    </script>
 
     <script>
         function selectSize(price, el) {
