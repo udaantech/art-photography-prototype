@@ -25,48 +25,67 @@
     overflow-x: hidden;
 }
 
-/* Minimal Navigation - Disappears on scroll (simulated via transparency) */
+/* Full Width Transparent Header */
 .ai-nav {
     position: fixed;
     top: 0;
+    left: 0;
     width: 100%;
     z-index: 1000;
-    padding: 1.5rem 3rem;
+    padding: 2rem 4rem;
     display: flex;
-    justify-content: center;
-    /* Centered nav pills */
+    justify-content: space-between;
     align-items: center;
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
-    pointer-events: none;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 100%);
+    /* Subtle gradient for text visibility */
+    transition: background 0.3s, padding 0.3s;
 }
 
-.ai-nav-pill {
-    pointer-events: auto;
+.ai-nav.scrolled {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 1rem 4rem;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.ai-logo {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.ai-nav-desktop {
     display: flex;
     gap: 3rem;
     align-items: center;
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(10px);
-    padding: 1rem 2rem;
-    border-radius: 50px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
 .ai-nav-link {
+    font-family: 'Inter', sans-serif;
     text-transform: uppercase;
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     letter-spacing: 2px;
-    font-weight: 600;
-    color: #111;
+    font-weight: 500;
+    color: #fff;
     text-decoration: none;
     position: relative;
-    opacity: 0.6;
-    transition: opacity 0.3s;
+    opacity: 0.8;
+    transition: all 0.3s;
 }
 
 .ai-nav-link:hover,
 .ai-nav-link.active {
     opacity: 1;
+}
+
+/* Scrolled State Colors */
+.ai-nav.scrolled .ai-logo,
+.ai-nav.scrolled .ai-nav-link {
+    color: #111;
 }
 
 /* Hero Section: Full Bleed "Masterpiece" */
@@ -80,60 +99,52 @@
     overflow: hidden;
 }
 
-.ai-hero-bg {
-    position: absolute;
-    inset: 0;
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-    animation: slowZoom 20s infinite alternate;
-}
-
-@keyframes slowZoom {
-    from {
-        transform: scale(1);
-    }
-
-    to {
-        transform: scale(1.1);
-    }
-}
-
-.ai-hero-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.2);
-    z-index: 1;
-}
+/* ... existing animation code preserved ... */
 
 .ai-hero-content {
     position: relative;
     z-index: 2;
     text-align: center;
     color: #fff;
-    margin-top: auto;
-    padding-bottom: 8rem;
+    margin-top: 0;
+    /* Center vertically */
+    padding-bottom: 0;
+    max-width: 90%;
 }
 
 .ai-title {
-    font-size: 8vw;
-    /* Massive typography */
-    font-weight: 800;
+    font-size: 5rem;
+    font-weight: 300;
+    /* Lighter, more elegant weight */
     text-transform: uppercase;
-    letter-spacing: -2px;
-    margin: 0;
-    line-height: 0.9;
-    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    letter-spacing: 1rem;
+    /* Huge spacing for luxury feel */
+    margin: 0 0 2rem 0;
+    line-height: 1.1;
+    text-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    animation: fadeUp 1.5s ease-out;
 }
 
 .ai-subtitle {
     font-size: 1.2rem;
-    letter-spacing: 5px;
+    letter-spacing: 4px;
     text-transform: uppercase;
-    margin-top: 1rem;
+    margin-bottom: 3rem;
     font-weight: 400;
     opacity: 0.9;
+    animation: fadeUp 1.5s ease-out 0.3s backwards;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .ai-btn {

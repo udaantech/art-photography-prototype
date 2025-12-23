@@ -16,14 +16,15 @@
 
 <body class="ai-body">
 
-    <!-- Invisible Nav (appears on hover or just exists) -->
-    <nav class="ai-nav">
-        <div class="ai-nav-pill">
+    <!-- Full Width Transparent Header -->
+    <nav class="ai-nav" id="navbar">
+        <a href="index.html" class="ai-logo">Christian Nørgaard</a>
+        <div class="ai-nav-desktop">
             <a href="index.html" class="ai-nav-link active">Gallery</a>
             <a href="collection.html" class="ai-nav-link">Limited Editions</a>
             <a href="#about" class="ai-nav-link">The Artist</a>
+            <a href="#" class="ai-nav-link">Contact</a>
         </div>
-        <a href="collection.html" class="ai-nav-link">Search</a>
     </nav>
 
     <!-- Full Bleed Hero -->
@@ -34,11 +35,23 @@
         <div class="ai-hero-overlay"></div>
 
         <div class="ai-hero-content">
-            <h1 class="ai-title">Passion for<br>Photography</h1>
-            <p class="ai-subtitle">Curating the World's Finest Lens-Based Art</p>
-            <button class="ai-btn" onclick="window.location.href='collection.html'">View Artists</button>
+            <h1 class="ai-title">The Silent<br>Narrative</h1>
+            <p class="ai-subtitle">Limited Edition Fine Art Photography</p>
+            <button class="ai-btn" onclick="window.location.href='collection.html'">View Collections</button>
         </div>
     </section>
+
+    <script>
+        // Nav transparency toggle
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    </script>
 
     <!-- Cinematic Sections - Artist Roster -->
     <section class="ai-section">
