@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collection | Christian Nørgaard</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <!-- Variant Styles -->
+    <link rel="stylesheet" href="styles/design-system.css">
+    <link rel="stylesheet" href="styles/variants.css">
+    <style>
+        /* Specific Styles for Abstract Collection */
+        .abstract-filter-bar {
+            padding: 2rem;
+            margin-top: 100px;
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            border-bottom: 1px solid #eee;
+        }
+
+        .abstract-filter-btn {
+            background: none;
+            border: none;
+            font-family: 'Inter', sans-serif;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            cursor: pointer;
+            color: #999;
+            transition: color 0.3s;
+        }
+
+        .abstract-filter-btn.active,
+        .abstract-filter-btn:hover {
+            color: #000;
+        }
+
+        .abstract-masonry {
+            column-count: 3;
+            column-gap: 2rem;
+            padding: 2rem;
+        }
+
+        @media (max-width: 900px) {
+            .abstract-masonry {
+                column-count: 2;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .abstract-masonry {
+                column-count: 1;
+            }
+        }
+
+        .abstract-card {
+            break-inside: avoid;
+            margin-bottom: 4rem;
+            text-align: center;
+        }
+
+        .abstract-card img {
+            width: 100%;
+            display: block;
+            margin-bottom: 1rem;
+            filter: grayscale(10%);
+            transition: filter 0.5s;
+        }
+
+        .abstract-card:hover img {
+            filter: grayscale(0%);
+        }
+
+        .abstract-card-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            margin: 0.5rem 0;
+            font-weight: 400;
+        }
+
+        .abstract-card-meta {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+
+<body class="abstract-body">
+
+    <nav class="abstract-nav" style="mix-blend-mode: normal;">
+        <a href="../index.html" style="color: #999; margin-right: 2rem; font-size: 0.7rem; text-decoration: none;">←
+            SELECT PROTO</a>
+        <a href="index.html" style="color: #000;">Christian Nørgaard</a>
+        <div style="display: flex; gap: 2rem;">
+            <a href="collection.html" style="color: #000;">Collection</a>
+            <a href="index.html#about" style="color: #000;">About</a>
+        </div>
+    </nav>
+
+    <div class="abstract-filter-bar">
+        <button class="abstract-filter-btn active">All</button>
+        <button class="abstract-filter-btn">Landscape</button>
+        <button class="abstract-filter-btn">Architecture</button>
+        <button class="abstract-filter-btn">Abstract</button>
+    </div>
+
+    <!-- Masonry Grid -->
+    <div class="abstract-masonry">
+        <!-- Item 1 -->
+        <article class="abstract-card">
+            <a href="artwork-detail.html" style="text-decoration: none; color: inherit;">
+                <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=90"
+                    alt="Mountain Solitude">
+                <h3 class="abstract-card-title">Mountain Solitude</h3>
+                <p class="abstract-card-meta">Landscape • Ed. of 7</p>
+            </a>
+        </article>
+
+        <!-- Item 2 -->
+        <article class="abstract-card">
+            <a href="artwork-detail.html" style="text-decoration: none; color: inherit;">
+                <img src="https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?w=800&q=90"
+                    alt="Graphic Shadows">
+                <h3 class="abstract-card-title">Graphic Shadows</h3>
+                <p class="abstract-card-meta">Architecture • Ed. of 7</p>
+            </a>
+        </article>
+
+        <!-- Item 3 -->
+        <article class="abstract-card">
+            <a href="artwork-detail.html" style="text-decoration: none; color: inherit;">
+                <img src="https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?w=800&q=90" alt="Desert Lines">
+                <h3 class="abstract-card-title">Desert Lines</h3>
+                <p class="abstract-card-meta">Abstract • Ed. of 7</p>
+            </a>
+        </article>
+
+        <!-- Item 4 -->
+        <article class="abstract-card">
+            <a href="artwork-detail.html" style="text-decoration: none; color: inherit;">
+                <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=90" alt="Alpine Light">
+                <h3 class="abstract-card-title">Alpine Light</h3>
+                <p class="abstract-card-meta">Landscape • Ed. of 7</p>
+            </a>
+        </article>
+
+        <!-- Item 5 -->
+        <article class="abstract-card">
+            <a href="artwork-detail.html" style="text-decoration: none; color: inherit;">
+                <img src="https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=800&q=90" alt="Structure">
+                <h3 class="abstract-card-title">Structure I</h3>
+                <p class="abstract-card-meta">Architecture • Ed. of 7</p>
+            </a>
+        </article>
+
+        <!-- Item 6 -->
+        <article class="abstract-card">
+            <a href="artwork-detail.html" style="text-decoration: none; color: inherit;">
+                <img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=800&q=90" alt="Ocean Void">
+                <h3 class="abstract-card-title">Ocean Void</h3>
+                <p class="abstract-card-meta">Seascape • Ed. of 7</p>
+            </a>
+        </article>
+    </div>
+
+</body>
+
+</html>

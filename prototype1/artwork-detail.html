@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mountain Solitude | Christian Nørgaard</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Inter:wght@300;400&display=swap"
+        rel="stylesheet">
+    <!-- Variant Styles -->
+    <link rel="stylesheet" href="styles/design-system.css">
+    <link rel="stylesheet" href="styles/variants.css">
+    <style>
+        .abstract-detail-container {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            min-height: 100vh;
+        }
+
+        .detail-image-panel {
+            background-color: #f4f4f4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem;
+            position: relative;
+        }
+
+        .detail-image-panel img {
+            max-width: 100%;
+            max-height: 80vh;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .detail-info-panel {
+            padding: 4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: #fff;
+        }
+
+        .detail-title {
+            font-size: 3rem;
+            font-weight: 300;
+            margin-bottom: 0.5rem;
+            line-height: 1;
+        }
+
+        .detail-meta {
+            font-family: 'Inter', sans-serif;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            color: #888;
+            margin-bottom: 3rem;
+        }
+
+        .detail-description {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 3rem;
+        }
+
+        .abstract-btn {
+            background: #000;
+            color: #fff;
+            border: none;
+            padding: 1rem 2rem;
+            font-family: 'Inter', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: opacity 0.3s;
+            width: 100%;
+        }
+
+        .abstract-btn:hover {
+            opacity: 0.8;
+        }
+
+        @media (max-width: 900px) {
+            .abstract-detail-container {
+                grid-template-columns: 1fr;
+            }
+
+            .detail-image-panel {
+                padding: 2rem;
+            }
+
+            .detail-info-panel {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body class="abstract-body">
+
+    <nav class="abstract-nav" style="mix-blend-mode: normal; position: absolute;">
+        <a href="../index.html" style="color: #999; margin-right: 2rem; font-size: 0.7rem; text-decoration: none;">←
+            SELECT PROTO</a>
+        <a href="index.html" style="color: #000;">Christian Nørgaard</a>
+        <div style="display: flex; gap: 2rem;">
+            <a href="collection.html" style="color: #000;">Collection</a>
+        </div>
+    </nav>
+
+    <div class="abstract-detail-container">
+        <div class="detail-image-panel">
+            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=95" alt="Mountain Solitude">
+        </div>
+        <div class="detail-info-panel">
+            <p class="detail-meta">Landscape Series • 2024</p>
+            <h1 class="detail-title">Mountain <br>Solitude</h1>
+            <p class="detail-meta" style="margin-bottom: 2rem; color: #000;">Edition 3 of 7</p>
+
+            <p class="detail-description">
+                "Silence is the language of the mountains." <br><br>
+                A study in light and form, captured at first light. Printed on archival cotton rag paper with
+                museum-quality pigment inks.
+            </p>
+
+            <div style="margin-bottom: 3rem;">
+                <div
+                    style="display: flex; justify-content: space-between; margin-bottom: 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.5rem;">
+                    <span>Small (40x60cm)</span>
+                    <span>$2,500</span>
+                </div>
+                <div
+                    style="display: flex; justify-content: space-between; margin-bottom: 1rem; border-bottom: 1px solid #000; padding-bottom: 0.5rem;">
+                    <span>Medium (60x90cm)</span>
+                    <span>$3,800</span>
+                </div>
+                <div
+                    style="display: flex; justify-content: space-between; margin-bottom: 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.5rem;">
+                    <span>Large (80x120cm)</span>
+                    <span>$5,200</span>
+                </div>
+            </div>
+
+            <button class="abstract-btn">Acquire Artwork</button>
+        </div>
+    </div>
+
+</body>
+
+</html>

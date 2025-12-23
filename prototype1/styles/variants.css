@@ -1,0 +1,133 @@
+/* Variants CSS - Abstract Style Only */
+
+/* =========================================
+   Abstract Variant ("The Gallery Wall")
+   ========================================= */
+.abstract-body {
+    background-color: #fcfcfc;
+    color: #111;
+    font-family: 'Cormorant Garamond', serif;
+    overflow-x: hidden;
+    margin: 0;
+}
+
+.abstract-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    z-index: 100;
+    mix-blend-mode: exclusion;
+    pointer-events: none;
+    /* Let clicks pass through to grid objects if needed */
+}
+
+.abstract-nav a {
+    pointer-events: auto;
+    color: #fff;
+    /* Due to exclusion blend mode */
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+}
+
+.abstract-hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem 2rem;
+    position: relative;
+}
+
+.abstract-title {
+    font-size: 12vw;
+    line-height: 0.8;
+    font-weight: 300;
+    margin-left: -1vw;
+    mix-blend-mode: difference;
+    color: #fff;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.abstract-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.2rem;
+    margin-top: 2rem;
+    max-width: 300px;
+    line-height: 1.6;
+    margin-left: 20vw;
+}
+
+.masonry-grid {
+    position: relative;
+    width: 100%;
+    min-height: 150vh;
+    /* Arbitrary large height for scrolling */
+    margin-top: 10vh;
+}
+
+.masonry-item {
+    position: absolute;
+    transition: transform 0.5s ease-out;
+}
+
+.masonry-item:hover {
+    transform: scale(1.02);
+    z-index: 20;
+}
+
+.masonry-item img {
+    display: block;
+    width: 100%;
+    height: auto;
+    filter: grayscale(100%);
+    transition: filter 0.5s ease;
+}
+
+.masonry-item:hover img {
+    filter: grayscale(0%);
+}
+
+/* Specific positioning for the "scattered" look */
+.m-item-1 {
+    top: 0;
+    right: 10%;
+    width: 35%;
+    z-index: 1;
+}
+
+.m-item-2 {
+    top: 20%;
+    left: 5%;
+    width: 25%;
+    z-index: 2;
+}
+
+.m-item-3 {
+    top: 60%;
+    left: 35%;
+    width: 30%;
+    z-index: 3;
+}
+
+.m-item-4 {
+    top: 90%;
+    right: 15%;
+    width: 20%;
+    z-index: 1;
+}
+
+.m-item-5 {
+    top: 110%;
+    left: 10%;
+    width: 40%;
+    z-index: 2;
+}

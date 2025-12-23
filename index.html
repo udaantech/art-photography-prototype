@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christian Nørgaard - Prototype Selection</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #333;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 800px;
+            width: 100%;
+            padding: 2rem;
+        }
+
+        h1 {
+            font-weight: 300;
+            margin-bottom: 3rem;
+            color: #111;
+            letter-spacing: 1px;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: white;
+            padding: 3rem 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid transparent;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-color: #eee;
+        }
+
+        .card h2 {
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+        }
+
+        .card p {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background: #f0f0f0;
+            color: #555;
+            margin-top: auto;
+        }
+
+        .card.abstract .tag {
+            background: #eee;
+            color: #333;
+        }
+
+        .card.ai .tag {
+            background: #111;
+            color: #fff;
+        }
+
+        @media (max-width: 600px) {
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Select Prototype Experience</h1>
+
+        <div class="card-grid">
+            <a href="prototype1/index.html" target="_blank" class="card abstract">
+                <h2>Abstract Gallery</h2>
+                <p>Minimalist, editorial aesthetic inspired by high-end physical galleries. Features masonry layouts and
+                    parallax scrolling.</p>
+                <span class="tag">Editorial Style</span>
+            </a>
+
+            <a href="prototype2/index.html" target="_blank" class="card ai">
+                <h2>The AI Experience</h2>
+                <p>Digital-first, immersive dark mode design. Features glassmorphism, floating UI elements, and animated
+                    glows.</p>
+                <span class="tag">Digital / Dark Mode</span>
+            </a>
+        </div>
+    </div>
+
+</body>
+
+</html>

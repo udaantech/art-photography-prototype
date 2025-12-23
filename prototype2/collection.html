@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work | Christian Nørgaard</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Variant Styles -->
+    <link rel="stylesheet" href="styles/design-system.css">
+    <link rel="stylesheet" href="styles/variants.css">
+    <style>
+        .ai-filter-pill-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 150px;
+            margin-bottom: 3rem;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .ai-filter-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .ai-filter-btn:hover,
+        .ai-filter-btn.active {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+
+<body class="ai-body">
+    <!-- Animated Background -->
+    <div class="ai-background">
+        <div class="ai-glow ai-glow-1"></div>
+        <div class="ai-glow ai-glow-2"></div>
+    </div>
+
+    <nav class="ai-nav">
+        <div class="ai-nav-pill">
+            <a href="../index.html" class="ai-nav-link" style="opacity: 0.5;">← Exit</a>
+            <a href="index.html" class="ai-nav-link">Home</a>
+            <a href="collection.html" class="ai-nav-link active">Work</a>
+            <a href="index.html#about" class="ai-nav-link">Artist</a>
+        </div>
+    </nav>
+
+    <div class="ai-filter-pill-container">
+        <button class="ai-filter-btn active">All Work</button>
+        <button class="ai-filter-btn">Landscape</button>
+        <button class="ai-filter-btn">Architecture</button>
+        <button class="ai-filter-btn">Abstract</button>
+    </div>
+
+    <!-- Glass Grid Collection -->
+    <section class="ai-section">
+        <div class="ai-grid">
+            <!-- Item 1 -->
+            <div class="ai-card">
+                <a href="artwork-detail.html">
+                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=90"
+                        alt="Mountain Solitude">
+                    <div class="ai-card-content">
+                        <h3 style="margin: 0; font-size: 1.5rem; font-weight: 600; color: #fff;">Mountain Solitude</h3>
+                        <p style="color: #aaa; margin-top: 0.5rem;">USD 2,500</p>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="ai-card">
+                <a href="artwork-detail.html">
+                    <img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=800&q=90"
+                        alt="Coastal Serenity">
+                    <div class="ai-card-content">
+                        <h3 style="margin: 0; font-size: 1.5rem; font-weight: 600; color: #fff;">Coastal Serenity</h3>
+                        <p style="color: #aaa; margin-top: 0.5rem;">USD 3,200</p>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="ai-card">
+                <a href="artwork-detail.html">
+                    <img src="https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=800&q=90"
+                        alt="Urban Geometry">
+                    <div class="ai-card-content">
+                        <h3 style="margin: 0; font-size: 1.5rem; font-weight: 600; color: #fff;">Urban Geometry</h3>
+                        <p style="color: #aaa; margin-top: 0.5rem;">USD 1,800</p>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="ai-card">
+                <a href="artwork-detail.html">
+                    <img src="https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?w=800&q=90"
+                        alt="Desert Dreams">
+                    <div class="ai-card-content">
+                        <h3 style="margin: 0; font-size: 1.5rem; font-weight: 600; color: #fff;">Desert Dreams</h3>
+                        <p style="color: #aaa; margin-top: 0.5rem;">USD 2,900</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>
