@@ -107,7 +107,7 @@
     <nav class="abstract-nav" style="mix-blend-mode: normal; position: absolute;">
         <a href="index.html" style="color: #000;">Christian Nørgaard</a>
         <div style="display: flex; gap: 2rem;">
-            <a href="collection.html" style="color: #000;">Collection</a>
+            <a href="collection.html" style="color: #000;">Limited Editions</a>
         </div>
     </nav>
 
@@ -118,7 +118,7 @@
         <div class="detail-info-panel">
             <p class="detail-meta">Landscape Series • 2024</p>
             <h1 class="detail-title">Mountain <br>Solitude</h1>
-            <p class="detail-meta" style="margin-bottom: 2rem; color: #000;">Edition 3 of 7</p>
+            <p class="detail-meta" style="margin-bottom: 2rem; color: #000;">Limited Edition of 7</p>
 
             <p class="detail-description">
                 "Silence is the language of the mountains." <br><br>
@@ -127,24 +127,43 @@
             </p>
 
             <div style="margin-bottom: 3rem;">
-                <div
-                    style="display: flex; justify-content: space-between; margin-bottom: 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.5rem;">
+                <div onclick="selectOption(this, 2500)" class="ab-size-opt selected"
+                    style="display: flex; justify-content: space-between; margin-bottom: 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; cursor: pointer;">
                     <span>Small (40x60cm)</span>
                     <span>$2,500</span>
                 </div>
-                <div
-                    style="display: flex; justify-content: space-between; margin-bottom: 1rem; border-bottom: 1px solid #000; padding-bottom: 0.5rem;">
+                <div onclick="selectOption(this, 3800)" class="ab-size-opt"
+                    style="display: flex; justify-content: space-between; margin-bottom: 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; cursor: pointer;">
                     <span>Medium (60x90cm)</span>
                     <span>$3,800</span>
                 </div>
-                <div
-                    style="display: flex; justify-content: space-between; margin-bottom: 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.5rem;">
+                <div onclick="selectOption(this, 5200)" class="ab-size-opt"
+                    style="display: flex; justify-content: space-between; margin-bottom: 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; cursor: pointer;">
                     <span>Large (80x120cm)</span>
                     <span>$5,200</span>
                 </div>
+                <div onclick="selectOption(this, 'Inquire')" class="ab-size-opt"
+                    style="display: flex; justify-content: space-between; margin-bottom: 1rem; border-bottom: 1px solid #000; padding-bottom: 0.5rem; cursor: pointer; color: #555;">
+                    <span>Photographer's Special Work</span>
+                    <span>Custom</span>
+                </div>
             </div>
 
-            <button class="abstract-btn">Acquire Artwork</button>
+            <button class="abstract-btn" id="ab-action">Acquire Artwork</button>
+
+            <script>
+                function selectOption(el, price) {
+                    document.querySelectorAll('.ab-size-opt').forEach(opt => opt.style.fontWeight = 'normal');
+                    el.style.fontWeight = 'bold';
+
+                    const btn = document.getElementById('ab-action');
+                    if (price === 'Inquire') {
+                        btn.innerText = "Request Information";
+                    } else {
+                        btn.innerText = "Acquire Artwork";
+                    }
+                }
+            </script>
         </div>
     </div>
 

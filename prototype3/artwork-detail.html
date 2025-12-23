@@ -99,7 +99,7 @@
         <nav class="ansel-nav">
             <a href="index.html">Home</a>
             <a href="collection.html">Gallery</a>
-            <a href="#">About</a>
+            <a href="#about">The Artist</a>
             <a href="#">Contact</a>
         </nav>
     </header>
@@ -111,24 +111,25 @@
         </div>
         <div class="ansel-product-info">
             <h1>Mist and Mountain</h1>
-            <span class="ansel-sku">CN-2024-001 | Limited Edition of 50</span>
+            <span class="ansel-sku">Limited Edition of 7 per Size</span>
 
             <p class="ansel-desc">
                 Captured in the early morning light of the Dolomites. Printed on archival cotton rag paper to ensure
-                longevity and tonal depth. Each print is signed and numbered by the artist.
+                longevity and tonal depth. Each print is signed and numbered by Christian Nørgaard.
             </p>
 
             <div class="ansel-form-group">
-                <label class="ansel-label">Select Size</label>
-                <select class="ansel-select">
-                    <option>Small (12x18") - $1,200</option>
-                    <option>Medium (24x36") - $2,500</option>
-                    <option>Large (40x60") - $4,800</option>
+                <label class="ansel-label">Select Size & Price</label>
+                <select class="ansel-select" id="size-select" onchange="checkSpecial(this)">
+                    <option value="2500">Standard (40x60cm) - $2,500</option>
+                    <option value="3800">Large (60x90cm) - $3,800</option>
+                    <option value="5200">Gallery (80x120cm) - $5,200</option>
+                    <option value="inquire">The Photographer's Special Work (Custom)</option>
                 </select>
             </div>
 
             <div class="ansel-form-group">
-                <label class="ansel-label">Framing Preference</label>
+                <label class="ansel-label">Framing Presentation</label>
                 <select class="ansel-select">
                     <option>Print Only (Ships in Tube)</option>
                     <option>Black Ash Frame (+$300)</option>
@@ -136,9 +137,20 @@
                 </select>
             </div>
 
-            <button class="ansel-add-btn">Add to Collection</button>
+            <button class="ansel-add-btn" id="ansel-action">Acquire Artwork</button>
         </div>
     </div>
+
+    <script>
+        function checkSpecial(select) {
+            const btn = document.getElementById('ansel-action');
+            if (select.value === 'inquire') {
+                btn.innerText = "Request Information";
+            } else {
+                btn.innerText = "Acquire Artwork";
+            }
+        }
+    </script>
 
     <footer class="ansel-footer">
         <p>&copy; 2024 Christian Nørgaard. All Rights Reserved.</p>
