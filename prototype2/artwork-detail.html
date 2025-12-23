@@ -4,249 +4,246 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mountain Solitude | Christian Nørgaard</title>
-    <!-- Fonts -->
+    <title>Silent Sands | The Darkroom</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Variant Styles -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600&family=Syncopate:wght@400;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="styles/design-system.css">
     <link rel="stylesheet" href="styles/variants.css">
     <style>
-        .ai-detail-hero {
-            height: 100vh;
-            width: 100%;
-            position: relative;
+        body {
+            background: #050505;
+        }
+
+        .prod-layout {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .prod-visual {
+            flex: 1;
+            padding: 4rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            overflow: hidden;
-        }
-
-        .ai-detail-bg {
-            position: absolute;
-            inset: 0;
-            background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600&q=90');
-            background-size: cover;
-            background-position: center;
-            filter: blur(20px) brightness(0.3);
-            z-index: -1;
-            transform: scale(1.1);
-        }
-
-        .ai-framing-stage {
-            width: 800px;
-            max-width: 90%;
             position: relative;
-            z-index: 10;
         }
 
-        .ai-artwork-image {
+        .main-art {
+            max-height: 80vh;
+            max-width: 90%;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .prod-sidebar {
+            width: 450px;
+            background: #111;
+            border-left: 1px solid #222;
+            padding: 4rem 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .prod-title {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            line-height: 1;
+        }
+
+        .prod-subtitle {
+            font-family: var(--font-body);
+            color: #888;
+            font-size: 1rem;
+            margin-bottom: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .prod-price {
+            font-size: 2rem;
+            font-family: var(--font-display);
+            margin-bottom: 2rem;
+            color: #fff;
+        }
+
+        .opt-group {
+            margin-bottom: 2rem;
+        }
+
+        .opt-label {
+            color: #666;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            margin-bottom: 0.8rem;
+            display: block;
+        }
+
+        .size-btn {
+            background: transparent;
+            border: 1px solid #333;
+            color: #fff;
+            padding: 1rem;
             width: 100%;
-            border-radius: 4px;
-            box-shadow: 0 50px 100px rgba(0, 0, 0, 0.5);
-            transition: all 0.5s ease;
+            text-align: left;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            justify-content: space-between;
         }
 
-        .ai-floating-panel {
+        .size-btn:hover,
+        .size-btn.active {
+            border-color: #fff;
+            background: #1a1a1a;
+        }
+
+        .action-btn {
+            background: #fff;
+            color: #000;
+            border: none;
+            width: 100%;
+            padding: 1.5rem;
+            font-family: var(--font-display);
+            font-size: 1rem;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            margin-top: 2rem;
+            transition: 0.3s;
+        }
+
+        .action-btn:hover {
+            background: #ddd;
+        }
+
+        /* View Modes */
+        .view-toggles {
             position: absolute;
             bottom: 2rem;
             left: 50%;
             transform: translateX(-50%);
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            padding: 1.5rem 2.5rem;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
             display: flex;
-            gap: 3rem;
-            align-items: center;
-            width: max-content;
-            max-width: 90%;
-        }
-
-        .ai-detail-title {
-            margin: 0;
-            font-size: 1.5rem;
-            color: #fff;
-        }
-
-        .ai-detail-price {
-            color: #aaa;
-            font-size: 1rem;
-        }
-
-        .ai-action-btn {
-            background: #fff;
-            color: #000;
-            border: none;
-            padding: 0.8rem 2rem;
-            border-radius: 100px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: box-shadow 0.3s;
-        }
-
-        .ai-action-btn:hover {
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
-        }
-
-        /* View Modes */
-        .ai-view-modes {
-            position: absolute;
-            top: 50%;
-            right: 2rem;
-            transform: translateY(-50%);
-            display: flex;
-            flex-direction: column;
             gap: 1rem;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 0.5rem;
+            border-radius: 50px;
+            backdrop-filter: blur(5px);
         }
 
-        .ai-mode-btn {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+        .toggle-btn {
+            background: transparent;
+            border: none;
             color: #fff;
+            padding: 0.5rem 1.5rem;
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            opacity: 0.6;
+            transition: 0.3s;
         }
 
-        .ai-mode-btn:hover,
-        .ai-mode-btn.active {
-            background: #fff;
-            color: #000;
+        .toggle-btn.active,
+        .toggle-btn:hover {
+            opacity: 1;
+            font-weight: bold;
         }
     </style>
 </head>
 
-<body class="ai-body">
+<body>
 
-    <nav class="ai-nav">
-        <div class="ai-nav-pill">
-            <a href="index.html" class="ai-nav-link">Home</a>
-            <a href="collection.html" class="ai-nav-link">Work</a>
-        </div>
-    </nav>
+    <!-- Back Nav -->
+    <a href="index.html"
+        style="position: fixed; top: 2rem; left: 2rem; z-index: 1000; color: #fff; text-decoration: none; font-family: var(--font-body); opacity: 0.7;">←
+        Back to Gallery</a>
 
-    <div class="ai-detail-hero">
-        <div class="ai-detail-bg"></div>
+    <div class="prod-layout">
+        <!-- Visual Side -->
+        <div class="prod-visual">
+            <img id="main-art" src="https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?w=1600&q=95" alt="Art"
+                class="main-art">
 
-        <div class="ai-framing-stage">
-            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=95" alt="Artwork"
-                class="ai-artwork-image" id="main-art">
-        </div>
-
-        <div class="ai-view-modes">
-            <button class="ai-mode-btn active" title="Standard View" onclick="resetView()">Img</button>
-            <button class="ai-mode-btn" title="View Framed" onclick="enableFrameView()">Frm</button>
-            <button class="ai-mode-btn" title="View in Room" onclick="enableRoomView()">Rm</button>
-        </div>
-
-        <div class="ai-floating-panel">
-            <div style="flex: 1;">
-                <h1 class="ai-detail-title">Mountain Solitude</h1>
-                <p style="color: #ccc; font-size: 0.9rem; margin-top: 0.5rem; letter-spacing: 1px;">LIMITED EDITION OF 7
-                </p>
-
-                <div class="ai-size-selector" style="display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap;">
-                    <div class="ai-size-option" onclick="selectSize(this, 2500)"
-                        style="border: 1px solid #555; padding: 0.5rem 1rem; border-radius: 8px; cursor: pointer; color: #fff; transition: all 0.3s;"
-                        class="selected">
-                        <div style="font-size: 0.8rem; font-weight: 600;">Standard</div>
-                        <div style="font-size: 0.7rem; color: #aaa;">40 x 60 cm</div>
-                    </div>
-                    <div class="ai-size-option" onclick="selectSize(this, 3800)"
-                        style="border: 1px solid #555; padding: 0.5rem 1rem; border-radius: 8px; cursor: pointer; color: #fff; transition: all 0.3s;">
-                        <div style="font-size: 0.8rem; font-weight: 600;">Large</div>
-                        <div style="font-size: 0.7rem; color: #aaa;">60 x 90 cm</div>
-                    </div>
-                    <div class="ai-size-option" onclick="selectSize(this, 5200)"
-                        style="border: 1px solid #555; padding: 0.5rem 1rem; border-radius: 8px; cursor: pointer; color: #fff; transition: all 0.3s;">
-                        <div style="font-size: 0.8rem; font-weight: 600;">Gallery</div>
-                        <div style="font-size: 0.7rem; color: #aaa;">80 x 120 cm</div>
-                    </div>
-                    <div class="ai-size-option special-work" onclick="selectSize(this, 'Price on Request')"
-                        style="border: 1px solid #d4af37; background: rgba(212, 175, 55, 0.1); padding: 0.5rem 1rem; border-radius: 8px; cursor: pointer; color: #d4af37; transition: all 0.3s;">
-                        <div style="font-size: 0.8rem; font-weight: 600;">Photographer's Special Work</div>
-                        <div style="font-size: 0.7rem; color: #d4af37;">Custom Size</div>
-                    </div>
-                </div>
-            </div>
-
-            <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 0.5rem; min-width: 150px;">
-                <span class="ai-detail-price" id="current-price"
-                    style="font-size: 1.5rem; color: #fff; font-weight: 400;">USD 2,500</span>
-                <button class="ai-action-btn">Acquire Artwork</button>
+            <div class="view-toggles">
+                <button class="toggle-btn active" onclick="resetView(this)">Standard</button>
+                <button class="toggle-btn" onclick="frameView(this)">Framed</button>
+                <button class="toggle-btn" onclick="roomView(this)">In Room</button>
             </div>
         </div>
 
-        <script>
-            function selectSize(element, price) {
-                // Reset styles
-                document.querySelectorAll('.ai-size-option').forEach(el => {
-                    el.style.backgroundColor = 'transparent';
-                    el.style.borderColor = '#555';
-                    if (el.classList.contains('special-work')) {
-                        el.style.borderColor = '#d4af37';
-                        el.style.background = 'rgba(212, 175, 55, 0.1)';
-                    }
-                });
+        <!-- Commerce Side -->
+        <div class="prod-sidebar">
+            <h1 class="prod-title">Silent Sands</h1>
+            <p class="prod-subtitle">Limited Edition of 7</p>
 
-                // Set active style
-                if (element.classList.contains('special-work')) {
-                    element.style.backgroundColor = 'rgba(212, 175, 55, 0.2)';
-                } else {
-                    element.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
-                    element.style.borderColor = '#fff';
-                }
+            <div class="prod-price" id="price-display">$2,500</div>
 
-                // Update price
-                const priceDisplay = document.getElementById('current-price');
-                if (typeof price === 'number') {
-                    priceDisplay.innerText = 'USD ' + price.toLocaleString();
-                    document.querySelector('.ai-action-btn').innerText = "Acquire Artwork";
-                } else {
-                    priceDisplay.innerText = "Inquire";
-                    document.querySelector('.ai-action-btn').innerText = "Request Info";
-                }
-            }
-        </script>
+            <div class="opt-group">
+                <span class="opt-label">Select Size</span>
+                <button class="size-btn active" onclick="selectSize(2500, this)">
+                    <span>Small (40x60cm)</span>
+                    <span>$2,500</span>
+                </button>
+                <button class="size-btn" onclick="selectSize(3800, this)">
+                    <span>Medium (60x90cm)</span>
+                    <span>$3,800</span>
+                </button>
+                <button class="size-btn" onclick="selectSize(5200, this)">
+                    <span>Large (80x120cm)</span>
+                    <span>$5,200</span>
+                </button>
+                <button class="size-btn" onclick="selectSpecial(this)">
+                    <span>Photographer's Special Work</span>
+                    <span>Inquire</span>
+                </button>
+            </div>
+
+            <button class="action-btn" id="cta-btn">Acquire Artwork</button>
+        </div>
     </div>
 
     <script>
-        function resetView() {
+        function selectSize(price, el) {
+            document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+            el.classList.add('active');
+            document.getElementById('price-display').innerText = '$' + price.toLocaleString();
+            document.getElementById('cta-btn').innerText = "Acquire Artwork";
+        }
+
+        function selectSpecial(el) {
+            document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+            el.classList.add('active');
+            document.getElementById('price-display').innerText = "Price on Request";
+            document.getElementById('cta-btn').innerText = "Request Information";
+        }
+
+        function frameView(el) {
+            resetView(el);
+            const img = document.getElementById('main-art');
+            img.style.transform = 'scale(0.85)';
+            img.style.border = '40px solid #111';
+            img.style.boxShadow = 'inset 0 0 20px rgba(0,0,0,0.5), 0 30px 60px rgba(0,0,0,0.5)';
+        }
+
+        function resetView(el) {
+            document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+            el.classList.add('active');
             const img = document.getElementById('main-art');
             img.style.transform = 'scale(1)';
             img.style.border = 'none';
-            img.style.boxShadow = '0 50px 100px rgba(0, 0, 0, 0.5)';
-            document.querySelectorAll('.ai-mode-btn').forEach(b => b.classList.remove('active'));
-            event.target.classList.add('active');
+            img.style.boxShadow = '0 0 50px rgba(0,0,0,0.8)';
         }
 
-        function enableRoomView() {
-            const img = document.getElementById('main-art');
-            img.style.transform = 'scale(0.5)';
-            img.style.border = 'none';
-            img.style.boxShadow = '0 50px 100px rgba(0, 0, 0, 0.5)';
-            document.querySelectorAll('.ai-mode-btn').forEach(b => b.classList.remove('active'));
-            event.target.classList.add('active');
-        }
-
-        function enableFrameView() {
-            const img = document.getElementById('main-art');
-            img.style.transform = 'scale(0.8)';
-            img.style.border = '40px solid #1a1a1a'; // Simulation of frame
-            img.style.boxShadow = 'inset 0 0 20px rgba(0,0,0,0.5), 0 30px 60px rgba(0,0,0,0.3)';
-            document.querySelectorAll('.ai-mode-btn').forEach(b => b.classList.remove('active'));
-            event.target.classList.add('active');
+        function roomView(el) {
+            alert("Room View Modal Placeholder - Would trigger full screen modal");
         }
     </script>
+
 </body>
 
 </html>
