@@ -30,20 +30,6 @@
             <a href="collection.html" class="ai-nav-link">Work</a>
             <a href="index.html#about" class="ai-nav-link">Artist</a>
             <a href="index.html#contact" class="ai-nav-link">Contact</a>
-            <button class="theme-toggle-btn" onclick="toggleTheme()" title="Toggle Light/Dark Mode">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="5"></circle>
-                    <line x1="12" y1="1" x2="12" y2="3"></line>
-                    <line x1="12" y1="21" x2="12" y2="23"></line>
-                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                    <line x1="1" y1="12" x2="3" y2="12"></line>
-                    <line x1="21" y1="12" x2="23" y2="12"></line>
-                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                </svg>
-            </button>
         </div>
     </nav>
 
@@ -89,18 +75,6 @@
     </section>
 
     <script>
-        // Theme Toggle Logic
-        function toggleTheme() {
-            document.body.classList.toggle('light-theme');
-            // Optional: Save preference
-            localStorage.setItem('ai-theme', document.body.classList.contains('light-theme') ? 'light' : 'dark');
-        }
-
-        // Check saved preference
-        if (localStorage.getItem('ai-theme') === 'light') {
-            document.body.classList.add('light-theme');
-        }
-
         // Smooth hover effect for cards logic could go here
         // Current CSS handles most interactions
     </script>
