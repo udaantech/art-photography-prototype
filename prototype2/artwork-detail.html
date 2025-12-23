@@ -144,29 +144,105 @@
 
         <div class="ai-view-modes">
             <button class="ai-mode-btn active" title="Standard View" onclick="resetView()">Img</button>
+            <button class="ai-mode-btn" title="View Framed" onclick="enableFrameView()">Frm</button>
             <button class="ai-mode-btn" title="View in Room" onclick="enableRoomView()">Rm</button>
         </div>
 
         <div class="ai-floating-panel">
-            <div>
+            <div style="flex: 1;">
                 <h1 class="ai-detail-title">Mountain Solitude</h1>
-                <span class="ai-detail-price">USD 2,500</span>
+                <p style="color: #ccc; font-size: 0.9rem; margin-top: 0.5rem; letter-spacing: 1px;">LIMITED EDITION OF 7
+                </p>
+
+                <div class="ai-size-selector" style="display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap;">
+                    <div class="ai-size-option" onclick="selectSize(this, 2500)"
+                        style="border: 1px solid #555; padding: 0.5rem 1rem; border-radius: 8px; cursor: pointer; color: #fff; transition: all 0.3s;"
+                        class="selected">
+                        <div style="font-size: 0.8rem; font-weight: 600;">Standard</div>
+                        <div style="font-size: 0.7rem; color: #aaa;">40 x 60 cm</div>
+                    </div>
+                    <div class="ai-size-option" onclick="selectSize(this, 3800)"
+                        style="border: 1px solid #555; padding: 0.5rem 1rem; border-radius: 8px; cursor: pointer; color: #fff; transition: all 0.3s;">
+                        <div style="font-size: 0.8rem; font-weight: 600;">Large</div>
+                        <div style="font-size: 0.7rem; color: #aaa;">60 x 90 cm</div>
+                    </div>
+                    <div class="ai-size-option" onclick="selectSize(this, 5200)"
+                        style="border: 1px solid #555; padding: 0.5rem 1rem; border-radius: 8px; cursor: pointer; color: #fff; transition: all 0.3s;">
+                        <div style="font-size: 0.8rem; font-weight: 600;">Gallery</div>
+                        <div style="font-size: 0.7rem; color: #aaa;">80 x 120 cm</div>
+                    </div>
+                    <div class="ai-size-option special-work" onclick="selectSize(this, 'Price on Request')"
+                        style="border: 1px solid #d4af37; background: rgba(212, 175, 55, 0.1); padding: 0.5rem 1rem; border-radius: 8px; cursor: pointer; color: #d4af37; transition: all 0.3s;">
+                        <div style="font-size: 0.8rem; font-weight: 600;">Photographer's Special Work</div>
+                        <div style="font-size: 0.7rem; color: #d4af37;">Custom Size</div>
+                    </div>
+                </div>
             </div>
-            <button class="ai-action-btn">Add to Collection</button>
+
+            <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 0.5rem; min-width: 150px;">
+                <span class="ai-detail-price" id="current-price"
+                    style="font-size: 1.5rem; color: #fff; font-weight: 400;">USD 2,500</span>
+                <button class="ai-action-btn">Acquire Artwork</button>
+            </div>
         </div>
+
+        <script>
+            function selectSize(element, price) {
+                // Reset styles
+                document.querySelectorAll('.ai-size-option').forEach(el => {
+                    el.style.backgroundColor = 'transparent';
+                    el.style.borderColor = '#555';
+                    if (el.classList.contains('special-work')) {
+                        el.style.borderColor = '#d4af37';
+                        el.style.background = 'rgba(212, 175, 55, 0.1)';
+                    }
+                });
+
+                // Set active style
+                if (element.classList.contains('special-work')) {
+                    element.style.backgroundColor = 'rgba(212, 175, 55, 0.2)';
+                } else {
+                    element.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+                    element.style.borderColor = '#fff';
+                }
+
+                // Update price
+                const priceDisplay = document.getElementById('current-price');
+                if (typeof price === 'number') {
+                    priceDisplay.innerText = 'USD ' + price.toLocaleString();
+                    document.querySelector('.ai-action-btn').innerText = "Acquire Artwork";
+                } else {
+                    priceDisplay.innerText = "Inquire";
+                    document.querySelector('.ai-action-btn').innerText = "Request Info";
+                }
+            }
+        </script>
     </div>
 
     <script>
         function resetView() {
             const img = document.getElementById('main-art');
             img.style.transform = 'scale(1)';
+            img.style.border = 'none';
+            img.style.boxShadow = '0 50px 100px rgba(0, 0, 0, 0.5)';
             document.querySelectorAll('.ai-mode-btn').forEach(b => b.classList.remove('active'));
             event.target.classList.add('active');
         }
 
         function enableRoomView() {
             const img = document.getElementById('main-art');
-            img.style.transform = 'scale(0.5)'; // Simple simulation of "room view" distance
+            img.style.transform = 'scale(0.5)';
+            img.style.border = 'none';
+            img.style.boxShadow = '0 50px 100px rgba(0, 0, 0, 0.5)';
+            document.querySelectorAll('.ai-mode-btn').forEach(b => b.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+
+        function enableFrameView() {
+            const img = document.getElementById('main-art');
+            img.style.transform = 'scale(0.8)';
+            img.style.border = '40px solid #1a1a1a'; // Simulation of frame
+            img.style.boxShadow = 'inset 0 0 20px rgba(0,0,0,0.5), 0 30px 60px rgba(0,0,0,0.3)';
             document.querySelectorAll('.ai-mode-btn').forEach(b => b.classList.remove('active'));
             event.target.classList.add('active');
         }
