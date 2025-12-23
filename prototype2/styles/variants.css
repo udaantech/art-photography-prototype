@@ -1,13 +1,51 @@
 /* Variants CSS - AI Style Only */
 
 /* =========================================
+   Theme Variables
+   ========================================= */
+:root {
+    --ai-bg-primary: #050505;
+    --ai-bg-gradient-start: #1a1a2e;
+    --ai-bg-gradient-end: #050505;
+    --ai-text-primary: #e0e0e0;
+    --ai-text-secondary: #aaa;
+    --ai-glass-bg: rgba(255, 255, 255, 0.05);
+    --ai-glass-border: rgba(255, 255, 255, 0.1);
+    --ai-glow-1: rgba(64, 100, 255, 0.15);
+    --ai-glow-2: rgba(255, 64, 128, 0.1);
+    --ai-nav-active: #fff;
+    --ai-card-hover-border: rgba(255, 255, 255, 0.2);
+    --ai-btn-bg: #fff;
+    --ai-btn-color: #000;
+}
+
+/* Light Mode Overrides ("Pro Vison" Aesthetic) */
+body.light-theme {
+    --ai-bg-primary: #f5f5f7;
+    --ai-bg-gradient-start: #e1e1e6;
+    --ai-bg-gradient-end: #f5f5f7;
+    --ai-text-primary: #1d1d1f;
+    --ai-text-secondary: #86868b;
+    --ai-glass-bg: rgba(255, 255, 255, 0.6);
+    --ai-glass-border: rgba(255, 255, 255, 0.5);
+    /* Heavier white border for frosty look */
+    --ai-glow-1: rgba(0, 122, 255, 0.15);
+    --ai-glow-2: rgba(255, 45, 85, 0.15);
+    --ai-nav-active: #000;
+    --ai-card-hover-border: rgba(0, 0, 0, 0.1);
+    --ai-btn-bg: #1d1d1f;
+    --ai-btn-color: #fff;
+}
+
+/* =========================================
    AI Style Variant ("The Digital Experience")
    ========================================= */
 .ai-body {
-    background-color: #050505;
-    color: #e0e0e0;
+    background-color: var(--ai-bg-primary);
+    color: var(--ai-text-primary);
     font-family: 'Inter', sans-serif;
     margin: 0;
+    transition: background-color 0.5s, color 0.5s;
 }
 
 /* Animated Gradient Background */
@@ -18,29 +56,30 @@
     width: 100%;
     height: 100%;
     z-index: -1;
-    background: radial-gradient(circle at 50% 50%, #1a1a2e, #050505 70%);
+    background: radial-gradient(circle at 50% 50%, var(--ai-bg-gradient-start), var(--ai-bg-gradient-end) 70%);
+    transition: background 0.5s;
 }
 
 .ai-glow {
     position: absolute;
     width: 600px;
     height: 600px;
-    background: radial-gradient(circle, rgba(64, 100, 255, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
     border-radius: 50%;
     pointer-events: none;
     animation: float 10s infinite ease-in-out;
+    transition: background 0.5s;
 }
 
 .ai-glow-1 {
     top: -20%;
     left: -10%;
-    animation-delay: 0s;
+    background: radial-gradient(circle, var(--ai-glow-1) 0%, rgba(0, 0, 0, 0) 70%);
 }
 
 .ai-glow-2 {
     bottom: -20%;
     right: -10%;
-    background: radial-gradient(circle, rgba(255, 64, 128, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
+    background: radial-gradient(circle, var(--ai-glow-2) 0%, rgba(0, 0, 0, 0) 70%);
     animation-delay: -5s;
 }
 
@@ -67,18 +106,20 @@
 }
 
 .ai-nav-pill {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--ai-glass-bg);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid var(--ai-glass-border);
     padding: 0.75rem 2rem;
     border-radius: 100px;
     display: flex;
     gap: 2rem;
+    transition: all 0.5s;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
 .ai-nav-link {
-    color: #aaa;
+    color: var(--ai-text-secondary);
     text-decoration: none;
     font-size: 0.9rem;
     font-weight: 500;
@@ -87,8 +128,24 @@
 
 .ai-nav-link:hover,
 .ai-nav-link.active {
-    color: #fff;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    color: var(--ai-nav-active);
+}
+
+/* Theme Toggle Button */
+.theme-toggle-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin-left: 1rem;
+    display: flex;
+    align-items: center;
+    color: var(--ai-text-secondary);
+    transition: color 0.3s;
+}
+
+.theme-toggle-btn:hover {
+    color: var(--ai-nav-active);
 }
 
 .ai-hero {
@@ -104,23 +161,25 @@
 .ai-title {
     font-size: 5rem;
     font-weight: 700;
-    background: linear-gradient(to right, #fff, #888);
+    background: linear-gradient(to right, var(--ai-nav-active), var(--ai-text-secondary));
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     letter-spacing: -2px;
     margin-bottom: 2rem;
+    transition: all 0.5s;
 }
 
 .ai-btn {
-    background: #fff;
-    color: #000;
+    background: var(--ai-btn-bg);
+    color: var(--ai-btn-color);
     border: none;
     padding: 1rem 3rem;
     font-size: 1rem;
     font-weight: 600;
     border-radius: 5px;
     cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: transform 0.2s, box-shadow 0.2s, background 0.5s, color 0.5s;
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
 }
 
@@ -143,18 +202,19 @@
 }
 
 .ai-card {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: var(--ai-glass-bg);
+    border: 1px solid var(--ai-glass-border);
     border-radius: 20px;
     overflow: hidden;
-    transition: transform 0.3s, border-color 0.3s;
+    transition: transform 0.3s, border-color 0.3s, background 0.5s;
     position: relative;
     aspect-ratio: 4/5;
+    backdrop-filter: blur(10px);
 }
 
 .ai-card:hover {
     transform: translateY(-10px);
-    border-color: rgba(255, 255, 255, 0.2);
+    border-color: var(--ai-card-hover-border);
 }
 
 .ai-card img {
@@ -176,4 +236,16 @@
     width: 100%;
     padding: 2rem;
     background: linear-gradient(to top, #000, transparent);
+    /* Keep text white on cards for better contrast over images even in light mode */
+}
+
+/* In light mode, maybe adjust the gradient slightly */
+.light-theme .ai-card-content {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+}
+
+.light-theme .ai-card-content h3,
+.light-theme .ai-card-content p {
+    color: #fff !important;
+    /* Force white text on image cards */
 }
