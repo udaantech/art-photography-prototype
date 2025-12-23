@@ -4,101 +4,287 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Christian Nørgaard | The Masterpiece Collection</title>
+    <title>Christian Nørgaard | The Darkroom</title>
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <!-- Variant Styles -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600&family=Syncopate:wght@400;700&display=swap"
+        rel="stylesheet">
+
     <link rel="stylesheet" href="styles/design-system.css">
     <link rel="stylesheet" href="styles/variants.css">
+
+    <style>
+        /* Immersive Styles specific to Homepage */
+
+        /* Sticky Side Nav */
+        .cine-nav {
+            position: fixed;
+            left: 0;
+            top: 0;
+            height: 100vh;
+            width: 80px;
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            padding: 2rem 0;
+            z-index: 1000;
+            background: rgba(5, 5, 5, 0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        .cine-logo {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            transform: rotate(180deg);
+            color: #fff;
+            text-decoration: none;
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            letter-spacing: 4px;
+        }
+
+        .cine-menu-btn {
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .cine-menu-btn:hover {
+            border-color: #fff;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Hero */
+        .cine-hero {
+            height: 100vh;
+            width: 100vw;
+            padding-left: 80px;
+            /* Offset for nav */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cine-hero-bg {
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            filter: brightness(0.4);
+        }
+
+        .cine-hero-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            animation: breathe 30s infinite alternate;
+        }
+
+        @keyframes breathe {
+            from {
+                transform: scale(1);
+            }
+
+            to {
+                transform: scale(1.15);
+            }
+        }
+
+        .cine-hero-content {
+            text-align: center;
+            max-width: 80%;
+            z-index: 2;
+        }
+
+        .cine-title {
+            font-size: 6vw;
+            line-height: 0.9;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeUp 1s forwards 0.5s;
+        }
+
+        .cine-subtitle {
+            font-family: var(--font-body);
+            font-size: 1.2rem;
+            letter-spacing: 0.5rem;
+            text-transform: uppercase;
+            margin-bottom: 3rem;
+            color: var(--text-secondary);
+            opacity: 0;
+            animation: fadeUp 1s forwards 0.8s;
+        }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Horizontal Scroll Section */
+        .cine-scroll-section {
+            padding-left: 80px;
+            background: #0a0a0a;
+            padding: 5rem 0 5rem 5rem;
+            overflow: hidden;
+        }
+
+        .cine-scroll-header {
+            margin-bottom: 3rem;
+            max-width: 800px;
+        }
+
+        .horizontal-track {
+            display: flex;
+            gap: 2rem;
+            overflow-x: auto;
+            padding-bottom: 4rem;
+            scrollbar-width: none;
+            /* Hide scrollbar */
+        }
+
+        .horizontal-track::-webkit-scrollbar {
+            display: none;
+        }
+
+        .cine-card {
+            min-width: 400px;
+            height: 600px;
+            position: relative;
+            cursor: pointer;
+            transition: 0.4s;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .cine-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .cine-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.7;
+            transition: 0.4s;
+        }
+
+        .cine-card:hover img {
+            opacity: 1;
+        }
+
+        .cine-card-info {
+            position: absolute;
+            bottom: 2rem;
+            left: 2rem;
+            z-index: 2;
+        }
+
+        .cine-card-title {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            margin: 0;
+            text-transform: uppercase;
+        }
+
+        .cine-card-series {
+            font-family: var(--font-body);
+            color: #aaa;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+    </style>
 </head>
 
-<body class="ai-body">
+<body>
 
-    <!-- Full Width Transparent Header -->
-    <nav class="ai-nav" id="navbar">
-        <a href="index.html" class="ai-logo">Christian Nørgaard</a>
-        <div class="ai-nav-desktop">
-            <a href="index.html" class="ai-nav-link active">Gallery</a>
-            <a href="collection.html" class="ai-nav-link">Limited Editions</a>
-            <a href="#about" class="ai-nav-link">The Artist</a>
-            <a href="#" class="ai-nav-link">Contact</a>
+    <!-- Side Nav -->
+    <nav class="cine-nav">
+        <div class="cine-menu-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
         </div>
+        <a href="#" class="cine-logo">CHRISTIAN NØRGAARD</a>
+        <div style="font-size: 0.8rem; writing-mode: vertical-rl; color: #666;">EST 2024</div>
     </nav>
 
-    <!-- Full Bleed Hero -->
-    <section class="ai-hero">
-        <!-- High Res Background - Christian Nørgaard Style (Landscape/Culture) -->
-        <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=1600&q=95" class="ai-hero-bg"
-            alt="Hero">
-        <div class="ai-hero-overlay"></div>
-
-        <div class="ai-hero-content">
-            <h1 class="ai-title">The Silent<br>Narrative</h1>
-            <p class="ai-subtitle">Limited Edition Fine Art Photography</p>
-            <button class="ai-btn" onclick="window.location.href='collection.html'">View Collections</button>
-        </div>
-    </section>
-
-    <script>
-        // Nav transparency toggle
-        window.addEventListener('scroll', () => {
-            const nav = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
-            }
-        });
-    </script>
-
-    <!-- Cinematic Sections - Artist Roster -->
-    <section class="ai-section">
-
-        <!-- Collection 1: Disappearing Worlds -->
-        <div class="ai-category-block">
-            <div class="ai-category-image">
-                <img src="https://images.unsplash.com/photo-1455620611406-966ca681f287?w=1200&q=95" alt="Culture">
-            </div>
-            <div class="ai-category-text">
-                <h2 class="ai-cat-title">Disappearing Worlds</h2>
-                <p class="ai-cat-desc">
-                    A historical visual experience bringing visitors face to face with our cultural roots.
-                    Intimate portraits and everyday moments from the edge of existence.
-                </p>
-                <a href="collection.html" class="ai-link">EXPLORE SERIES →</a>
-            </div>
+    <!-- Hero -->
+    <header class="cine-hero">
+        <div class="cine-hero-bg">
+            <img src="https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?w=1600&q=95" alt="Hero Background">
         </div>
 
-        <!-- Collection 2: Silent Structures -->
-        <div class="ai-category-block">
-            <div class="ai-category-image">
-                <img src="https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?w=1200&q=95" alt="Architecture">
-            </div>
-            <div class="ai-category-text">
-                <h2 class="ai-cat-title">Silent Structures</h2>
-                <p class="ai-cat-desc">
-                    Geometric perfection in the heart of chaos. A study of light, shadow, and the human expanse.
-                </p>
-                <a href="collection.html" class="ai-link">EXPLORE SERIES →</a>
-            </div>
+        <div class="cine-hero-content">
+            <h1 class="cine-title text-glow">THE SILENT<br>NARRATIVE</h1>
+            <p class="cine-subtitle">Fine Art Photography • Limited Editions</p>
+            <a href="collection.html" class="btn-cinema">Enter Gallery</a>
+        </div>
+    </header>
+
+    <!-- Horizontal Scroll Collections -->
+    <section class="cine-scroll-section">
+        <div class="cine-scroll-header">
+            <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Recent Works</h2>
+            <p style="color: #666; font-size: 1.1rem; max-width: 500px;">
+                Exploring the boundaries between the ephemeral and the eternal.
+                A curated selection of the latest limited edition prints.
+            </p>
         </div>
 
-        <!-- Collection 3: Urban Dreams -->
-        <div class="ai-category-block">
-            <div class="ai-category-image">
-                <img src="https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=1200&q=95" alt="Urban">
+        <div class="horizontal-track">
+            <!-- Card 1 -->
+            <div class="cine-card" onclick="window.location.href='collection.html'">
+                <img src="https://images.unsplash.com/photo-1542206395-9feb3edaa68d?w=800&q=90" alt="Work 1">
+                <div class="cine-card-info">
+                    <h3 class="cine-card-title">Silent Sands</h3>
+                    <p class="cine-card-series">Disappearing Worlds</p>
+                </div>
             </div>
-            <div class="ai-category-text">
-                <h2 class="ai-cat-title">Urban Dreams</h2>
-                <p class="ai-cat-desc">
-                    The city sleeps, but the light never fades. Discover the vibrant soul of the metropolis.
-                </p>
-                <a href="collection.html" class="ai-link">EXPLORE SERIES →</a>
+
+            <!-- Card 2 -->
+            <div class="cine-card" onclick="window.location.href='collection.html'">
+                <img src="https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?w=800&q=90" alt="Work 2">
+                <div class="cine-card-info">
+                    <h3 class="cine-card-title">Urban Void</h3>
+                    <p class="cine-card-series">Silent Structures</p>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="cine-card" onclick="window.location.href='collection.html'">
+                <img src="https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=800&q=90" alt="Work 3">
+                <div class="cine-card-info">
+                    <h3 class="cine-card-title">Neon Rain</h3>
+                    <p class="cine-card-series">Urban Dreams</p>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="cine-card" onclick="window.location.href='collection.html'">
+                <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=800&q=90" alt="Work 4">
+                <div class="cine-card-info">
+                    <h3 class="cine-card-title">Lost Highway</h3>
+                    <p class="cine-card-series">Cinematic</p>
+                </div>
             </div>
         </div>
-
     </section>
 
 </body>
