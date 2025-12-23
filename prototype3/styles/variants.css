@@ -1,0 +1,225 @@
+/* Variants CSS - Prototype 3 (The Archival Gallery / Ansel Style) */
+
+/* =========================================
+   Theme Variables
+   ========================================= */
+:root {
+    /* Backgrounds: Warm, paper-like, archival */
+    --ansel-bg-primary: #fdfcf8;
+    --ansel-bg-secondary: #f4f1ea;
+
+    /* Typography: Classic Serif + Functional Sans */
+    --ansel-font-heading: 'Playfair Display', serif;
+    --ansel-font-body: 'Lato', sans-serif;
+
+    /* Colors: Ink Black, Mat White, Sepia Hints */
+    --ansel-text-primary: #222222;
+    --ansel-text-secondary: #666666;
+    --ansel-accent: #8c7b6c;
+    /* Sepia-ish */
+
+    /* Borders: Fine lines */
+    --ansel-border: 1px solid #e0e0e0;
+}
+
+/* =========================================
+   Base Styles
+   ========================================= */
+.ansel-body {
+    background-color: var(--ansel-bg-primary);
+    color: var(--ansel-text-primary);
+    font-family: var(--ansel-font-body);
+    margin: 0;
+    line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--ansel-font-heading);
+    font-weight: 400;
+    color: #111;
+}
+
+a {
+    transition: color 0.2s;
+}
+
+/* =========================================
+   Header / Navigation
+   ========================================= */
+.ansel-header {
+    background: #fff;
+    border-bottom: var(--ansel-border);
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.ansel-logo {
+    font-family: var(--ansel-font-heading);
+    font-size: 1.8rem;
+    text-decoration: none;
+    color: #000;
+    letter-spacing: 0.5px;
+}
+
+.ansel-nav {
+    display: flex;
+    gap: 2rem;
+}
+
+.ansel-nav a {
+    text-decoration: none;
+    color: #444;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
+.ansel-nav a:hover {
+    color: var(--ansel-accent);
+}
+
+.ansel-proto-link {
+    font-size: 0.7rem;
+    color: #999;
+    margin-right: 1rem;
+    border-right: 1px solid #eee;
+    padding-right: 1rem;
+}
+
+/* =========================================
+   Hero Section
+   ========================================= */
+.ansel-hero {
+    height: 70vh;
+    background-image: url('https://images.unsplash.com/photo-1433838552652-f9a46b332c40?w=1600&q=90');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.ansel-hero-overlay {
+    background: rgba(255, 255, 255, 0.85);
+    padding: 4rem;
+    text-align: center;
+    max-width: 600px;
+    border: 1px solid #ddd;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.ansel-hero-title {
+    font-size: 3rem;
+    margin: 0 0 1rem 0;
+}
+
+.ansel-hero-subtitle {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 2rem;
+    font-style: italic;
+}
+
+.ansel-btn {
+    background: #222;
+    color: #fff;
+    text-decoration: none;
+    padding: 1rem 2rem;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    display: inline-block;
+}
+
+.ansel-btn:hover {
+    background: var(--ansel-accent);
+}
+
+/* =========================================
+   The Collection Grid (Mat Board Style)
+   ========================================= */
+.ansel-section {
+    padding: 5rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.ansel-section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 2rem;
+}
+
+.ansel-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 4rem;
+}
+
+.ansel-card {
+    background: #fff;
+    padding: 1.5rem;
+    /* The "Mat" */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    /* Gentle shadow */
+    border: 1px solid #f0f0f0;
+    transition: transform 0.2s;
+    text-align: center;
+}
+
+.ansel-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.ansel-card-img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    /* Square format mostly */
+    object-fit: contain;
+    /* Don't crop, show full border */
+    background: #f9f9f9;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.ansel-card-title {
+    font-family: var(--ansel-font-heading);
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+    color: #222;
+}
+
+.ansel-card-meta {
+    font-size: 0.85rem;
+    color: #777;
+    margin-bottom: 1rem;
+}
+
+.ansel-card-price {
+    font-weight: 700;
+    color: #222;
+    display: block;
+    margin-top: 0.5rem;
+}
+
+/* =========================================
+   Footer
+   ========================================= */
+.ansel-footer {
+    background: #222;
+    color: #999;
+    padding: 4rem 2rem;
+    text-align: center;
+    font-size: 0.9rem;
+}

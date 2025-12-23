@@ -4,11 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Future Vision | Christian Nørgaard</title>
+    <title>Christian Nørgaard | The Masterpiece Collection</title>
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <!-- Variant Styles -->
     <link rel="stylesheet" href="styles/design-system.css">
     <link rel="stylesheet" href="styles/variants.css">
@@ -16,68 +16,79 @@
 
 <body class="ai-body">
 
-    <!-- Animated Background -->
-    <div class="ai-background">
-        <div class="ai-glow ai-glow-1"></div>
-        <div class="ai-glow ai-glow-2"></div>
-    </div>
-
-    <!-- Floating Nav -->
+    <!-- Invisible Nav (appears on hover or just exists) -->
     <nav class="ai-nav">
+        <a href="../index.html" class="ai-nav-link" style="opacity: 0.5;">← BACK</a>
         <div class="ai-nav-pill">
-            <a href="../index.html" class="ai-nav-link" style="opacity: 0.5;">← Exit</a>
-            <a href="index.html" class="ai-nav-link active">Home</a>
-            <a href="collection.html" class="ai-nav-link">Work</a>
-            <a href="index.html#about" class="ai-nav-link">Artist</a>
-            <a href="index.html#contact" class="ai-nav-link">Contact</a>
+            <a href="index.html" class="ai-nav-link active">Gallery</a>
+            <a href="collection.html" class="ai-nav-link">Limited Editions</a>
+            <a href="index.html#artists" class="ai-nav-link">The Artist</a>
         </div>
+        <a href="collection.html" class="ai-nav-link">Search</a>
     </nav>
 
-    <!-- Immersive Hero -->
+    <!-- Full Bleed Hero -->
     <section class="ai-hero">
-        <h1 class="ai-title">
-            The Future of <br>Fine Art Photography
-        </h1>
-        <p style="color: #aaa; max-width: 500px; margin-bottom: 3rem; line-height: 1.6; font-size: 1.1rem;">
-            Experience limited edition prints in a new dimension. Merging the timeless beauty of nature with the
-            precision of digital presentation.
-        </p>
-        <button class="ai-btn" onclick="window.location.href='collection.html'">Start Exploring</button>
-    </section>
+        <!-- High Res Background -->
+        <img src="https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?w=1600&q=95" class="ai-hero-bg"
+            alt="Hero">
+        <div class="ai-hero-overlay"></div>
 
-    <!-- Glass Grid -->
-    <section class="ai-section">
-        <div class="ai-grid">
-            <div class="ai-card">
-                <img src="https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?w=800&q=90" alt="Abstract">
-                <div class="ai-card-content">
-                    <h3 style="margin: 0; font-size: 1.5rem; font-weight: 600;">Abstract</h3>
-                    <p style="color: #aaa; margin-top: 0.5rem;">Visual synthesis of form</p>
-                </div>
-            </div>
-
-            <div class="ai-card">
-                <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=90" alt="Landscape">
-                <div class="ai-card-content">
-                    <h3 style="margin: 0; font-size: 1.5rem; font-weight: 600;">Landscape</h3>
-                    <p style="color: #aaa; margin-top: 0.5rem;">Digital horizons</p>
-                </div>
-            </div>
-
-            <div class="ai-card">
-                <img src="https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?w=800&q=90" alt="Architecture">
-                <div class="ai-card-content">
-                    <h3 style="margin: 0; font-size: 1.5rem; font-weight: 600;">Architecture</h3>
-                    <p style="color: #aaa; margin-top: 0.5rem;">Geometric precision</p>
-                </div>
-            </div>
+        <div class="ai-hero-content">
+            <h1 class="ai-title">Ethereal<br>Light</h1>
+            <p class="ai-subtitle">The 2024 Master Collection</p>
+            <button class="ai-btn" onclick="window.location.href='collection.html'">View Collection</button>
         </div>
     </section>
 
-    <script>
-        // Smooth hover effect for cards logic could go here
-        // Current CSS handles most interactions
-    </script>
+    <!-- Cinematic Sections -->
+    <section class="ai-section">
+
+        <!-- Category Block 1 -->
+        <div class="ai-category-block">
+            <div class="ai-category-image">
+                <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=95" alt="Mountains">
+            </div>
+            <div class="ai-category-text">
+                <h2 class="ai-cat-title">Alpine Giants</h2>
+                <p class="ai-cat-desc">
+                    Captured at the break of dawn, these limited edition prints showcase the raw, silent power of the
+                    world's most dramatic peaks.
+                </p>
+                <a href="collection.html" class="ai-link">EXPLORE SERIES →</a>
+            </div>
+        </div>
+
+        <!-- Category Block 2 -->
+        <div class="ai-category-block">
+            <div class="ai-category-image">
+                <img src="https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?w=1200&q=95" alt="Architecture">
+            </div>
+            <div class="ai-category-text">
+                <h2 class="ai-cat-title">Silent Structures</h2>
+                <p class="ai-cat-desc">
+                    Geometric perfection in the heart of chaos. A study of light, shadow, and the human expanse.
+                </p>
+                <a href="collection.html" class="ai-link">EXPLORE SERIES →</a>
+            </div>
+        </div>
+
+        <!-- Category Block 3 -->
+        <div class="ai-category-block">
+            <div class="ai-category-image">
+                <img src="https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=1200&q=95" alt="Urban">
+            </div>
+            <div class="ai-category-text">
+                <h2 class="ai-cat-title">Urban Dreams</h2>
+                <p class="ai-cat-desc">
+                    The city sleeps, but the light never fades. Discover the vibrant soul of the metropolis.
+                </p>
+                <a href="collection.html" class="ai-link">EXPLORE SERIES →</a>
+            </div>
+        </div>
+
+    </section>
+
 </body>
 
 </html>
