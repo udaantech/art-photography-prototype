@@ -18,24 +18,11 @@
 
 <body class="abstract-body">
 
-    <nav class="abstract-nav" style="justify-content: space-between; align-items: center;">
-        <!-- Left: Logo -->
-        <a href="index.html" style="font-weight: 600;">Christian Nørgaard</a>
-
-        <!-- Center: Primary Menu -->
+    <nav class="abstract-nav">
+        <a href="index.html">Christian Nørgaard</a>
         <div style="display: flex; gap: 2rem;">
-            <a href="collection.html">Works</a>
-            <a href="#about">About</a>
-            <a href="#">Info</a>
-            <a href="#">Journal</a>
-            <a href="#">Contact</a>
-        </div>
-
-        <!-- Right: Utility -->
-        <div style="display: flex; gap: 1.5rem; font-size: 0.9rem;">
-            <a href="#">Search</a>
-            <a href="#">Account</a>
-            <a href="#">Cart (0)</a>
+            <a href="collection.html">Limited Editions</a>
+            <a href="#about">The Artist</a>
         </div>
     </nav>
 
@@ -63,100 +50,41 @@
             </a>
         </div>
 
-        <!-- ... (Masonry Items preserved in actual concept, but verifying tool usage constraints) ... -->
-        <!-- Since I cannot see all lines in this replace block, I must be careful not to overwrite the grid if I don't intend to. 
-             I will target ONLY the nav and footer areas separately to be safe. -->
-    </div>
-
-    <!-- Standard Footer -->
-    <footer
-        style="padding: 4rem 2rem; border-top: 1px solid #eee; margin-top: 4rem; font-family: 'Inter', sans-serif; font-size: 0.8rem; color: #555;">
-        <div
-            style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 2rem; max-width: 1200px; margin: 0 auto;">
-
-            <!-- Links Column -->
-            <div style="display: flex; gap: 2rem;">
-                <a href="#" style="text-decoration: none; color: #333;">Terms & Conditions</a>
-                <a href="#" style="text-decoration: none; color: #333;">Privacy Policy</a>
-                <a href="#" style="text-decoration: none; color: #333;">Returns</a>
-                <a href="#" style="text-decoration: none; color: #333;">Shipping</a>
-            </div>
-
-            <!-- Social -->
-            <div>
-                <a href="#" style="text-decoration: none; color: #333;">Instagram</a>
-            </div>
-
-            <!-- Newsletter -->
-            <div style="display: flex; gap: 1rem; align-items: center;">
-                <span>Newsletter</span>
-                <input type="email" placeholder="Email Address"
-                    style="padding: 0.5rem; border: 1px solid #ddd; font-family: inherit;">
-                <button
-                    style="background: #111; color: #fff; border: none; padding: 0.5rem 1rem; cursor: pointer;">Subscribe</button>
-            </div>
+        <!-- Item 2 -->
+        <div class="masonry-item m-item-2" data-speed="-1">
+            <a href="artwork-detail.html">
+                <img src="https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?w=1000&q=90" alt="Architecture">
+                <p style="margin-top: 1rem; font-family: 'Inter'; font-size: 0.8rem; letter-spacing: 1px;">MODERN STRUCT
+                </p>
+            </a>
         </div>
-        <div style="text-align: center; margin-top: 3rem; color: #999;">
-            &copy; 2024 Christian Nørgaard.
+
+        <!-- Item 3 -->
+        <div class="masonry-item m-item-3" data-speed="1.5">
+            <a href="artwork-detail.html">
+                <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=90" alt="Landscape">
+                <p style="margin-top: 1rem; font-family: 'Inter'; font-size: 0.8rem; letter-spacing: 1px;">ALPINE LIGHT
+                </p>
+            </a>
         </div>
-    </footer>
 
-    <script>
-        // Simple Parallax Effect
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const items = document.querySelectorAll('.masonry-item');
+        <!-- Item 4 -->
+        <div class="masonry-item m-item-4" data-speed="3">
+            <a href="artwork-detail.html">
+                <img src="https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=1000&q=90" alt="Urban">
+                <p style="margin-top: 1rem; font-family: 'Inter'; font-size: 0.8rem; letter-spacing: 1px;">URBAN DREAMS
+                </p>
+            </a>
+        </div>
 
-            items.forEach(item => {
-                const speed = item.getAttribute('data-speed');
-                item.style.transform = `translateY(${scrolled * speed * 0.1}px)`;
-            });
-        });
-    </script>
-    <!-- Item 1 -->
-    <div class="masonry-item m-item-1" data-speed="2">
-        <a href="artwork-detail.html">
-            <img src="https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?w=1200&q=90" alt="Abstract Desert">
-            <p style="margin-top: 1rem; font-family: 'Inter'; font-size: 0.8rem; letter-spacing: 1px;">SILENT SANDS
-            </p>
-        </a>
-    </div>
-
-    <!-- Item 2 -->
-    <div class="masonry-item m-item-2" data-speed="-1">
-        <a href="artwork-detail.html">
-            <img src="https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?w=1000&q=90" alt="Architecture">
-            <p style="margin-top: 1rem; font-family: 'Inter'; font-size: 0.8rem; letter-spacing: 1px;">MODERN STRUCT
-            </p>
-        </a>
-    </div>
-
-    <!-- Item 3 -->
-    <div class="masonry-item m-item-3" data-speed="1.5">
-        <a href="artwork-detail.html">
-            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=90" alt="Landscape">
-            <p style="margin-top: 1rem; font-family: 'Inter'; font-size: 0.8rem; letter-spacing: 1px;">ALPINE LIGHT
-            </p>
-        </a>
-    </div>
-
-    <!-- Item 4 -->
-    <div class="masonry-item m-item-4" data-speed="3">
-        <a href="artwork-detail.html">
-            <img src="https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=1000&q=90" alt="Urban">
-            <p style="margin-top: 1rem; font-family: 'Inter'; font-size: 0.8rem; letter-spacing: 1px;">URBAN DREAMS
-            </p>
-        </a>
-    </div>
-
-    <!-- Item 5 -->
-    <div class="masonry-item m-item-5" data-speed="1">
-        <a href="artwork-detail.html">
-            <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1200&q=90" alt="Mountains">
-            <p style="margin-top: 1rem; font-family: 'Inter'; font-size: 0.8rem; letter-spacing: 1px;">NORDIC ICE
-            </p>
-        </a>
-    </div>
+        <!-- Item 5 -->
+        <div class="masonry-item m-item-5" data-speed="1">
+            <a href="artwork-detail.html">
+                <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1200&q=90" alt="Mountains">
+                <p style="margin-top: 1rem; font-family: 'Inter'; font-size: 0.8rem; letter-spacing: 1px;">NORDIC ICE
+                </p>
+            </a>
+        </div>
     </div>
 
     <script>
