@@ -8,15 +8,15 @@
     --ansel-bg-primary: #fdfcf8;
     --ansel-bg-secondary: #f4f1ea;
 
-    /* Typography: Classic Serif + Functional Sans */
-    --ansel-font-heading: 'Playfair Display', serif;
-    --ansel-font-body: 'Lato', sans-serif;
+    /* Typography: Per PRD - Cormorant Garamond + Inter */
+    --ansel-font-heading: 'Cormorant Garamond', serif;
+    --ansel-font-body: 'Inter', sans-serif;
 
-    /* Colors: Ink Black, Mat White, Sepia Hints */
+    /* Colors: Ink Black, Mat White, Gold accent */
     --ansel-text-primary: #222222;
     --ansel-text-secondary: #666666;
-    --ansel-accent: #8c7b6c;
-    /* Sepia-ish */
+    --ansel-accent: #c9a961;
+    /* Gold accent per PRD */
 
     /* Borders: Fine lines */
     --ansel-border: 1px solid #e0e0e0;
@@ -99,9 +99,9 @@ a {
    ========================================= */
 .ansel-hero {
     height: 70vh;
-    background-image: url('https://images.unsplash.com/photo-1433838552652-f9a46b332c40?w=1600&q=90');
+    background-image: url('../images/crimson-dreams.jpg');
     background-size: cover;
-    background-position: center;
+    background-position: center top;
     display: flex;
     align-items: center;
     justify-content: center;
