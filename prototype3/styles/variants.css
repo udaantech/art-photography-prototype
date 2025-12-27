@@ -98,23 +98,43 @@ a {
    Hero Section
    ========================================= */
 .ansel-hero {
-    height: 70vh;
-    background-image: url('../images/crimson-dreams.jpg');
-    background-size: cover;
-    background-position: center top;
+    height: 80vh;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
+    overflow: hidden;
+}
+
+.ansel-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('../images/crimson-dreams.jpg');
+    background-size: cover;
+    background-position: center top;
+    animation: heroBreath 20s ease-in-out infinite alternate;
+    z-index: 0;
+}
+
+@keyframes heroBreath {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.1);
+    }
 }
 
 .ansel-hero-overlay {
-    background: rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.9);
     padding: 4rem;
     text-align: center;
     max-width: 600px;
     border: 1px solid #ddd;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1;
 }
 
 .ansel-hero-title {
