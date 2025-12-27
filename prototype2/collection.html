@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600&family=Syncopate:wght@400;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="styles/design-system.css">
     <link rel="stylesheet" href="styles/variants.css">
@@ -62,7 +62,7 @@
         }
 
         .col-title {
-            font-family: var(--font-display);
+            font-family: 'Cormorant Garamond', serif;
             font-size: 1.1rem;
             color: #fff;
             margin: 0;
@@ -73,7 +73,7 @@
             color: #666;
             font-size: 0.8rem;
             margin-top: 0.5rem;
-            font-family: var(--font-body);
+            font-family: 'Inter', sans-serif;
         }
 
         .filter-bar {
@@ -98,13 +98,30 @@
             margin-right: 2rem;
             cursor: pointer;
             text-transform: uppercase;
-            font-family: var(--font-body);
+            font-family: 'Inter', sans-serif;
             font-size: 0.8rem;
             transition: 0.3s;
         }
 
         .filter-btn.active,
         .filter-btn:hover {
+            color: #fff;
+        }
+
+        .sort-select {
+            background: transparent;
+            border: 1px solid #333;
+            color: #fff;
+            padding: 0.4rem 0.8rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            cursor: pointer;
+            margin-left: auto;
+        }
+
+        .sort-select option {
+            background: #111;
             color: #fff;
         }
     </style>
@@ -173,6 +190,12 @@
         <button class="filter-btn">Structures</button>
         <button class="filter-btn">Nature</button>
         <button class="filter-btn">Urban</button>
+        <select class="sort-select">
+            <option>Sort: Newest</option>
+            <option>Price: Low to High</option>
+            <option>Price: High to Low</option>
+            <option>Name A-Z</option>
+        </select>
     </div>
 
     <!-- Grid -->
@@ -180,62 +203,73 @@
         <!-- Item 1 -->
         <div class="col-card" onclick="window.location.href='artwork-detail.html'">
             <div class="col-img-wrap">
-                <img src="https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?w=800&q=90" alt="Work">
+                <img src="images/tribal-elder.jpg" alt="Tribal Elder">
             </div>
             <div class="col-info">
-                <h3 class="col-title">Silent Sands</h3>
-                <p class="col-meta">Disappearing Worlds • Limited Edition of 7</p>
+                <h3 class="col-title">Tribal Elder</h3>
+                <p class="col-meta">Portrait Series • Limited Edition of 7</p>
             </div>
         </div>
-        <!-- ... (Items Preserved) ... -->
+
         <!-- Item 2 -->
         <div class="col-card" onclick="window.location.href='artwork-detail.html'">
             <div class="col-img-wrap">
-                <img src="https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?w=800&q=90" alt="Work">
+                <img src="images/holy-man.jpg" alt="Holy Man">
             </div>
             <div class="col-info">
-                <h3 class="col-title">Urban Void</h3>
-                <p class="col-meta">Silent Structures • Limited Edition of 7</p>
+                <h3 class="col-title">Holy Man</h3>
+                <p class="col-meta">Sacred Journeys • Limited Edition of 7</p>
             </div>
         </div>
 
         <!-- Item 3 -->
         <div class="col-card" onclick="window.location.href='artwork-detail.html'">
             <div class="col-img-wrap">
-                <img src="https://images.unsplash.com/photo-1542206395-9feb3edaa68d?w=800&q=90" alt="Work">
+                <img src="images/silent-reflection.jpg" alt="Silent Reflection">
             </div>
             <div class="col-info">
-                <h3 class="col-title">Mist and Mountain</h3>
-                <p class="col-meta">Nature • Limited Edition of 7</p>
+                <h3 class="col-title">Silent Reflection</h3>
+                <p class="col-meta">Portrait Series • Limited Edition of 7</p>
             </div>
         </div>
 
         <!-- Item 4 -->
         <div class="col-card" onclick="window.location.href='artwork-detail.html'">
             <div class="col-img-wrap">
-                <img src="https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=800&q=90" alt="Work">
+                <img src="images/young-monk.jpg" alt="Young Monk">
             </div>
             <div class="col-info">
-                <h3 class="col-title">Neon Rain</h3>
-                <p class="col-meta">Urban Dreams • Limited Edition of 7</p>
+                <h3 class="col-title">Young Monk</h3>
+                <p class="col-meta">Contemplation • Limited Edition of 7</p>
             </div>
         </div>
 
         <!-- Item 5 -->
         <div class="col-card" onclick="window.location.href='artwork-detail.html'">
             <div class="col-img-wrap">
-                <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=800&q=90" alt="Work">
+                <img src="images/butter-lamps.jpg" alt="Butter Lamps">
             </div>
             <div class="col-info">
-                <h3 class="col-title">Lost Highway</h3>
-                <p class="col-meta">Cinematic • Limited Edition of 7</p>
+                <h3 class="col-title">Butter Lamps</h3>
+                <p class="col-meta">Sacred Light • Limited Edition of 7</p>
+            </div>
+        </div>
+
+        <!-- Item 6 -->
+        <div class="col-card" onclick="window.location.href='artwork-detail.html'">
+            <div class="col-img-wrap">
+                <img src="images/soy-artisans.jpg" alt="The Soy Artisans">
+            </div>
+            <div class="col-info">
+                <h3 class="col-title">The Soy Artisans</h3>
+                <p class="col-meta">Documentary • Limited Edition of 7</p>
             </div>
         </div>
     </div>
 
     <!-- P2 Dark Footer -->
     <footer
-        style="padding: 4rem 2rem 4rem 100px; background: #050505; border-top: 1px solid #111; color: #666; font-family: 'Manrope', sans-serif; font-size: 0.8rem;">
+        style="padding: 4rem 2rem 4rem 100px; background: #050505; border-top: 1px solid #111; color: #666; font-family: 'Inter', sans-serif; font-size: 0.8rem;">
         <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 3rem; max-width: 1400px;">
             <div style="display: flex; gap: 2rem;">
                 <a href="#" style="color: #888; text-decoration: none;">Terms & Conditions</a>
@@ -253,7 +287,7 @@
                 <input type="email" placeholder="Email Address"
                     style="background: transparent; border: 1px solid #333; color: #fff; padding: 0.5rem; font-family: inherit;">
                 <button
-                    style="background: #fff; color: #000; border: none; padding: 0.5rem 1rem; cursor: pointer;">Subscribe</button>
+                    style="background: #c9a961; color: #000; border: none; padding: 0.5rem 1rem; cursor: pointer; font-family: 'Inter', sans-serif; text-transform: uppercase; letter-spacing: 1px; font-size: 0.75rem;">Subscribe</button>
             </div>
         </div>
         <div style="margin-top: 3rem; color: #444;">

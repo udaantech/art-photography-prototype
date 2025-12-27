@@ -4,11 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Silent Sands | The Darkroom</title>
+    <title>Tribal Elder | The Darkroom</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600&family=Syncopate:wght@400;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="styles/design-system.css">
     <link rel="stylesheet" href="styles/variants.css">
@@ -49,13 +49,14 @@
         }
 
         .prod-title {
+            font-family: 'Cormorant Garamond', serif;
             font-size: 3rem;
             margin-bottom: 0.5rem;
             line-height: 1;
         }
 
         .prod-subtitle {
-            font-family: var(--font-body);
+            font-family: 'Inter', sans-serif;
             color: #888;
             font-size: 1rem;
             margin-bottom: 3rem;
@@ -65,9 +66,88 @@
 
         .prod-price {
             font-size: 2rem;
-            font-family: var(--font-display);
+            font-family: 'Cormorant Garamond', serif;
             margin-bottom: 2rem;
             color: #fff;
+        }
+
+        .main-art.bw-mode {
+            filter: grayscale(100%);
+        }
+
+        /* Zoom Modal */
+        .zoom-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.98);
+            z-index: 3000;
+            cursor: zoom-out;
+            overflow: auto;
+        }
+
+        .zoom-modal img {
+            max-width: none;
+            width: 150%;
+            display: block;
+            margin: 2rem auto;
+        }
+
+        .zoom-close {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            background: transparent;
+            border: none;
+            color: #fff;
+            font-size: 2rem;
+            cursor: pointer;
+            z-index: 3001;
+        }
+
+        /* Room View Modal */
+        .room-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.95);
+            z-index: 3000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .room-modal.active {
+            display: flex;
+        }
+
+        .room-scene {
+            position: relative;
+            width: 90%;
+            max-width: 1000px;
+        }
+
+        .room-scene img.room-bg {
+            width: 100%;
+            border-radius: 4px;
+        }
+
+        .room-scene img.room-art {
+            position: absolute;
+            width: 25%;
+            top: 30%;
+            left: 37%;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .room-close {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            background: transparent;
+            border: none;
+            color: #fff;
+            font-size: 2rem;
+            cursor: pointer;
         }
 
         .opt-group {
@@ -213,19 +293,35 @@
         </div>
     </div>
 
+    <!-- Zoom Modal -->
+    <div class="zoom-modal" id="zoom-modal" onclick="closeZoom()">
+        <button class="zoom-close" onclick="closeZoom()">×</button>
+        <img src="images/tribal-elder.jpg" alt="Artwork Zoom">
+    </div>
+
+    <!-- Room View Modal -->
+    <div class="room-modal" id="room-modal">
+        <button class="room-close" onclick="closeRoom()">×</button>
+        <div class="room-scene">
+            <img class="room-bg" src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1200&q=90" alt="Modern Living Room">
+            <img class="room-art" src="images/tribal-elder.jpg" alt="Artwork in Room">
+        </div>
+    </div>
+
     <!-- Back Nav -->
     <a href="collection.html"
-        style="position: fixed; top: 2rem; left: 100px; z-index: 1000; color: #fff; text-decoration: none; font-family: var(--font-body); opacity: 0.7;">←
+        style="position: fixed; top: 2rem; left: 100px; z-index: 1000; color: #fff; text-decoration: none; font-family: 'Inter', sans-serif; opacity: 0.7;">←
         Back to Gallery</a>
 
     <div class="prod-layout" style="padding-left: 80px;">
         <!-- Visual Side -->
         <div class="prod-visual">
-            <img id="main-art" src="https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?w=1600&q=95" alt="Art"
-                class="main-art">
+            <img id="main-art" src="images/tribal-elder.jpg" alt="Tribal Elder"
+                class="main-art" onclick="openZoom()" style="cursor: zoom-in;">
 
             <div class="view-toggles">
                 <button class="toggle-btn active" onclick="resetView(this)">Standard</button>
+                <button class="toggle-btn" onclick="bwView(this)">B&W</button>
                 <button class="toggle-btn" onclick="frameView(this)">Framed</button>
                 <button class="toggle-btn" onclick="roomView(this)">In Room</button>
             </div>
@@ -233,7 +329,7 @@
 
         <!-- Commerce Side -->
         <div class="prod-sidebar">
-            <h1 class="prod-title">Silent Sands</h1>
+            <h1 class="prod-title">Tribal Elder</h1>
             <p class="prod-subtitle">Limited Edition of 7</p>
 
             <div class="prod-price" id="price-display">$2,500</div>
@@ -258,13 +354,23 @@
                 </button>
             </div>
 
-            <button class="action-btn" id="cta-btn">Acquire Artwork</button>
+            <div class="opt-group">
+                <span class="opt-label">Framing</span>
+                <select style="width: 100%; background: transparent; border: 1px solid #333; color: #fff; padding: 1rem; font-family: 'Inter', sans-serif; font-size: 0.9rem; cursor: pointer;">
+                    <option style="background: #111;">Print Only (Ships in Tube)</option>
+                    <option style="background: #111;">Black Ash Frame (+$300)</option>
+                    <option style="background: #111;">White Oak Frame (+$400)</option>
+                    <option style="background: #111;">Walnut Gallery Frame (+$500)</option>
+                </select>
+            </div>
+
+            <button class="action-btn" id="cta-btn" style="background: #c9a961; color: #000;">Acquire Artwork</button>
         </div>
     </div>
 
     <!-- P2 Dark Footer -->
     <footer
-        style="padding: 4rem 2rem 4rem 100px; background: #050505; border-top: 1px solid #111; color: #666; font-family: 'Manrope', sans-serif; font-size: 0.8rem;">
+        style="padding: 4rem 2rem 4rem 100px; background: #050505; border-top: 1px solid #111; color: #666; font-family: 'Inter', sans-serif; font-size: 0.8rem;">
         <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 3rem; max-width: 1400px;">
             <div style="display: flex; gap: 2rem;">
                 <a href="#" style="color: #888; text-decoration: none;">Terms & Conditions</a>
@@ -282,7 +388,7 @@
                 <input type="email" placeholder="Email Address"
                     style="background: transparent; border: 1px solid #333; color: #fff; padding: 0.5rem; font-family: inherit;">
                 <button
-                    style="background: #fff; color: #000; border: none; padding: 0.5rem 1rem; cursor: pointer;">Subscribe</button>
+                    style="background: #c9a961; color: #000; border: none; padding: 0.5rem 1rem; cursor: pointer; font-family: 'Inter', sans-serif; text-transform: uppercase; letter-spacing: 1px; font-size: 0.75rem;">Subscribe</button>
             </div>
         </div>
         <div style="margin-top: 3rem; color: #444;">
@@ -378,26 +484,63 @@
             document.getElementById('cta-btn').innerText = "Request Information";
         }
 
-        function frameView(el) {
-            resetView(el);
-            const img = document.getElementById('main-art');
-            img.style.transform = 'scale(0.85)';
-            img.style.border = '40px solid #111';
-            img.style.boxShadow = 'inset 0 0 20px rgba(0,0,0,0.5), 0 30px 60px rgba(0,0,0,0.5)';
-        }
-
         function resetView(el) {
             document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
             el.classList.add('active');
             const img = document.getElementById('main-art');
+            img.classList.remove('bw-mode');
             img.style.transform = 'scale(1)';
             img.style.border = 'none';
             img.style.boxShadow = '0 0 50px rgba(0,0,0,0.8)';
         }
 
-        function roomView(el) {
-            alert("Room View Modal Placeholder - Would trigger full screen modal");
+        function bwView(el) {
+            document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+            el.classList.add('active');
+            const img = document.getElementById('main-art');
+            img.classList.add('bw-mode');
+            img.style.transform = 'scale(1)';
+            img.style.border = 'none';
+            img.style.boxShadow = '0 0 50px rgba(0,0,0,0.8)';
         }
+
+        function frameView(el) {
+            document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+            el.classList.add('active');
+            const img = document.getElementById('main-art');
+            img.classList.remove('bw-mode');
+            img.style.transform = 'scale(0.85)';
+            img.style.border = '40px solid #111';
+            img.style.boxShadow = 'inset 0 0 20px rgba(0,0,0,0.5), 0 30px 60px rgba(0,0,0,0.5)';
+        }
+
+        function roomView(el) {
+            document.getElementById('room-modal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeRoom() {
+            document.getElementById('room-modal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function openZoom() {
+            document.getElementById('zoom-modal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeZoom() {
+            document.getElementById('zoom-modal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modals with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeZoom();
+                closeRoom();
+            }
+        });
     </script>
 
 </body>

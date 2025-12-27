@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="styles/variants.css">
 </head>
@@ -50,19 +50,37 @@
 
     <section class="ansel-section">
         <div class="ansel-section-header">
-            <h2>The Full Collection</h2>
-            <p>Browse limited edition prints by series.</p>
+            <h2 style="font-family: 'Cormorant Garamond', serif;">The Full Collection</h2>
+            <p style="font-family: 'Inter', sans-serif;">Browse limited edition prints by series.</p>
+        </div>
+
+        <!-- Filters and Sort -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; padding: 1rem 0; border-bottom: 1px solid #eee; flex-wrap: wrap; gap: 1rem;">
+            <div style="display: flex; gap: 1.5rem;">
+                <button style="background: none; border: none; font-family: 'Inter', sans-serif; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 1px; cursor: pointer; color: #000; font-weight: 600;">All</button>
+                <button style="background: none; border: none; font-family: 'Inter', sans-serif; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 1px; cursor: pointer; color: #888;">Landscape</button>
+                <button style="background: none; border: none; font-family: 'Inter', sans-serif; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 1px; cursor: pointer; color: #888;">Architecture</button>
+                <button style="background: none; border: none; font-family: 'Inter', sans-serif; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 1px; cursor: pointer; color: #888;">Abstract</button>
+            </div>
+            <div style="display: flex; gap: 0.5rem; align-items: center;">
+                <span style="font-family: 'Inter', sans-serif; font-size: 0.75rem; color: #888; text-transform: uppercase; letter-spacing: 1px;">Sort:</span>
+                <select style="background: transparent; border: 1px solid #ddd; padding: 0.4rem 0.8rem; font-family: 'Inter', sans-serif; font-size: 0.75rem; text-transform: uppercase; cursor: pointer;">
+                    <option>Newest</option>
+                    <option>Price: Low to High</option>
+                    <option>Price: High to Low</option>
+                    <option>Name A-Z</option>
+                </select>
+            </div>
         </div>
 
         <div class="ansel-grid">
-            <!-- Items Preserved -->
             <!-- Card 1 -->
             <div class="ansel-card">
                 <a href="artwork-detail.html">
-                    <img src="https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?w=600&q=90" alt="Nature"
+                    <img src="images/imperial-grace.jpg" alt="Imperial Grace"
                         class="ansel-card-img">
                 </a>
-                <h3 class="ansel-card-title">Mist and Mountain</h3>
+                <h3 class="ansel-card-title">Imperial Grace</h3>
                 <div class="ansel-card-meta">Archival Pigment Print</div>
                 <span class="ansel-card-price">$1,200</span>
             </div>
@@ -70,10 +88,10 @@
             <!-- Card 2 -->
             <div class="ansel-card">
                 <a href="artwork-detail.html">
-                    <img src="https://images.unsplash.com/photo-1516641396056-0ce60a85d49f?w=600&q=90" alt="Nature"
+                    <img src="images/joy-of-music.jpg" alt="Joy of Music"
                         class="ansel-card-img">
                 </a>
-                <h3 class="ansel-card-title">Winter Silence</h3>
+                <h3 class="ansel-card-title">Joy of Music</h3>
                 <div class="ansel-card-meta">Silver Gelatin</div>
                 <span class="ansel-card-price">$2,400</span>
             </div>
@@ -81,10 +99,10 @@
             <!-- Card 3 -->
             <div class="ansel-card">
                 <a href="artwork-detail.html">
-                    <img src="https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=600&q=90" alt="Nature"
+                    <img src="images/crimson-dreams.jpg" alt="Crimson Dreams"
                         class="ansel-card-img">
                 </a>
-                <h3 class="ansel-card-title">Ancient Forest</h3>
+                <h3 class="ansel-card-title">Crimson Dreams</h3>
                 <div class="ansel-card-meta">Platinum Print</div>
                 <span class="ansel-card-price">$3,500</span>
             </div>
@@ -92,10 +110,10 @@
             <!-- Card 4 -->
             <div class="ansel-card">
                 <a href="artwork-detail.html">
-                    <img src="https://images.unsplash.com/photo-1433838552652-f9a46b332c40?w=600&q=90" alt="Nature"
+                    <img src="images/the-soy-maker.jpg" alt="The Soy Maker"
                         class="ansel-card-img">
                 </a>
-                <h3 class="ansel-card-title">High Sierra</h3>
+                <h3 class="ansel-card-title">The Soy Maker</h3>
                 <div class="ansel-card-meta">Archival Pigment</div>
                 <span class="ansel-card-price">$1,800</span>
             </div>
@@ -103,10 +121,10 @@
             <!-- Card 5 -->
             <div class="ansel-card">
                 <a href="artwork-detail.html">
-                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=90" alt="Nature"
+                    <img src="images/prayer-wheel.jpg" alt="Prayer Wheel"
                         class="ansel-card-img">
                 </a>
-                <h3 class="ansel-card-title">Peak Light</h3>
+                <h3 class="ansel-card-title">Prayer Wheel</h3>
                 <div class="ansel-card-meta">Silver Gelatin</div>
                 <span class="ansel-card-price">$4,200</span>
             </div>
@@ -114,10 +132,10 @@
             <!-- Card 6 -->
             <div class="ansel-card">
                 <a href="artwork-detail.html">
-                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=600&q=90" alt="Nature"
+                    <img src="images/fathers-blessing.jpg" alt="Father's Blessing"
                         class="ansel-card-img">
                 </a>
-                <h3 class="ansel-card-title">Yosemite Light</h3>
+                <h3 class="ansel-card-title">Father's Blessing</h3>
                 <div class="ansel-card-meta">Platinum Print</div>
                 <span class="ansel-card-price">$2,800</span>
             </div>

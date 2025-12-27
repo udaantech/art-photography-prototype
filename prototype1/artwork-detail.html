@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mountain Solitude | Christian Nørgaard</title>
+    <title>Tribal Elder | Christian Nørgaard</title>
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,12 +28,123 @@
             justify-content: center;
             padding: 4rem;
             position: relative;
+            flex-direction: column;
         }
 
         .detail-image-panel img {
             max-width: 100%;
-            max-height: 80vh;
+            max-height: 70vh;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            cursor: zoom-in;
+            transition: all 0.4s ease;
+        }
+
+        .detail-image-panel img.bw-mode {
+            filter: grayscale(100%);
+        }
+
+        .detail-image-panel img.framed-mode {
+            border: 30px solid #1a1a1a;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25);
+        }
+
+        .view-controls {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .view-btn {
+            background: transparent;
+            border: 1px solid #ccc;
+            padding: 0.5rem 1.2rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .view-btn:hover, .view-btn.active {
+            background: #000;
+            color: #fff;
+            border-color: #000;
+        }
+
+        /* Zoom Modal */
+        .zoom-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.95);
+            z-index: 2000;
+            cursor: zoom-out;
+            overflow: auto;
+        }
+
+        .zoom-modal img {
+            max-width: none;
+            width: 150%;
+            display: block;
+            margin: 2rem auto;
+        }
+
+        .zoom-close {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            background: transparent;
+            border: none;
+            color: #fff;
+            font-size: 2rem;
+            cursor: pointer;
+            z-index: 2001;
+        }
+
+        /* Room View Modal */
+        .room-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.9);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .room-modal.active {
+            display: flex;
+        }
+
+        .room-scene {
+            position: relative;
+            width: 90%;
+            max-width: 1000px;
+        }
+
+        .room-scene img.room-bg {
+            width: 100%;
+            border-radius: 4px;
+        }
+
+        .room-scene img.room-art {
+            position: absolute;
+            width: 25%;
+            top: 30%;
+            left: 37%;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .room-close {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            background: transparent;
+            border: none;
+            color: #fff;
+            font-size: 2rem;
+            cursor: pointer;
         }
 
         .detail-info-panel {
@@ -134,19 +245,39 @@
         </div>
     </nav>
 
+    <!-- Zoom Modal -->
+    <div class="zoom-modal" id="zoom-modal" onclick="closeZoom()">
+        <button class="zoom-close" onclick="closeZoom()">×</button>
+        <img src="images/tribal-elder.jpg" alt="Tribal Elder Zoom">
+    </div>
+
+    <!-- Room View Modal -->
+    <div class="room-modal" id="room-modal">
+        <button class="room-close" onclick="closeRoom()">×</button>
+        <div class="room-scene">
+            <img class="room-bg" src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1200&q=90" alt="Modern Living Room">
+            <img class="room-art" src="images/tribal-elder.jpg" alt="Artwork in Room">
+        </div>
+    </div>
+
     <div class="abstract-detail-container">
         <div class="detail-image-panel">
-            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=95" alt="Mountain Solitude">
+            <img id="main-image" src="images/tribal-elder.jpg" alt="Tribal Elder" onclick="openZoom()">
+            <div class="view-controls">
+                <button class="view-btn active" onclick="setView('standard', this)">Standard</button>
+                <button class="view-btn" onclick="setView('bw', this)">B&W</button>
+                <button class="view-btn" onclick="setView('framed', this)">Framed</button>
+                <button class="view-btn" onclick="openRoom()">In Room</button>
+            </div>
         </div>
         <div class="detail-info-panel">
-            <p class="detail-meta">Landscape Series • 2024</p>
-            <h1 class="detail-title">Mountain <br>Solitude</h1>
+            <p class="detail-meta">Portrait Series • 2024</p>
+            <h1 class="detail-title">Tribal <br>Elder</h1>
             <p class="detail-meta" style="margin-bottom: 2rem; color: #000;">Limited Edition of 7</p>
 
             <p class="detail-description">
-                "Silence is the language of the mountains." <br><br>
-                A study in light and form, captured at first light. Printed on archival cotton rag paper with
-                museum-quality pigment inks.
+                "Wisdom etched in every line." <br><br>
+                A portrait of resilience and tradition, capturing the dignity of a tribal elder from Northeast India. Printed on archival cotton rag paper with museum-quality pigment inks.
             </p>
 
             <div style="margin-bottom: 3rem;">
@@ -172,7 +303,18 @@
                 </div>
             </div>
 
-            <button class="abstract-btn" id="ab-action">Acquire Artwork</button>
+            <!-- Framing Options -->
+            <div style="margin-bottom: 2rem;">
+                <p style="font-family: 'Inter', sans-serif; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: #888; margin-bottom: 0.8rem;">Framing</p>
+                <select id="framing-select" style="width: 100%; padding: 0.8rem; border: 1px solid #eee; font-family: 'Inter', sans-serif; font-size: 0.9rem; cursor: pointer;">
+                    <option value="0">Print Only (Ships in Tube)</option>
+                    <option value="300">Black Ash Frame (+$300)</option>
+                    <option value="400">White Oak Frame (+$400)</option>
+                    <option value="500">Walnut Gallery Frame (+$500)</option>
+                </select>
+            </div>
+
+            <button class="abstract-btn" id="ab-action" style="background: #c9a961;">Acquire Artwork</button>
 
             <script>
                 function selectOption(el, price) {
@@ -186,10 +328,70 @@
                         btn.innerText = "Acquire Artwork";
                     }
                 }
+
+                // View mode controls
+                function setView(mode, btn) {
+                    const img = document.getElementById('main-image');
+                    img.classList.remove('bw-mode', 'framed-mode');
+                    document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+
+                    if (mode === 'bw') {
+                        img.classList.add('bw-mode');
+                    } else if (mode === 'framed') {
+                        img.classList.add('framed-mode');
+                    }
+                }
+
+                // Zoom modal
+                function openZoom() {
+                    document.getElementById('zoom-modal').style.display = 'block';
+                    document.body.style.overflow = 'hidden';
+                }
+
+                function closeZoom() {
+                    document.getElementById('zoom-modal').style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+
+                // Room view modal
+                function openRoom() {
+                    document.getElementById('room-modal').classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+
+                function closeRoom() {
+                    document.getElementById('room-modal').classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+
+                // Close modals with Escape key
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape') {
+                        closeZoom();
+                        closeRoom();
+                    }
+                });
             </script>
         </div>
     </div>
 
+    <!-- Footer -->
+    <footer style="padding: 3rem 2rem; background: #fff; border-top: 1px solid #eee;">
+        <div style="display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; flex-wrap: wrap; gap: 2rem;">
+            <div style="display: flex; gap: 2rem; font-family: 'Inter', sans-serif; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px;">
+                <a href="#" style="color: #666; text-decoration: none;">Terms & Conditions</a>
+                <a href="#" style="color: #666; text-decoration: none;">Privacy Policy</a>
+                <a href="#" style="color: #666; text-decoration: none;">Shipping & Returns</a>
+            </div>
+            <div style="display: flex; gap: 2rem; align-items: center;">
+                <a href="#" style="color: #666; text-decoration: none; font-family: 'Inter', sans-serif; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px;">Instagram</a>
+            </div>
+        </div>
+        <p style="text-align: center; margin-top: 2rem; color: #999; font-family: 'Inter', sans-serif; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px;">
+            &copy; 2024 Christian Nørgaard. All Rights Reserved.
+        </p>
+    </footer>
 
 </body>
 
