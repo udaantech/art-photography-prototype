@@ -69,9 +69,10 @@
 .masonry-grid {
     position: relative;
     width: 100%;
-    min-height: 150vh;
-    /* Arbitrary large height for scrolling */
+    min-height: 280vh;
+    /* Increased height to show all images */
     margin-top: 10vh;
+    margin-bottom: 10vh;
 }
 
 .masonry-item {
